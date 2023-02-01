@@ -21,4 +21,9 @@ checkPrice();
 console.log("Outside the function:", priceTag);
 //get function
 //listen
+Express.get("/",(req,res)=>{
+  res.send("You got ur Phone")
+  console.log("success")
+})
 
+Express.listen(3000)

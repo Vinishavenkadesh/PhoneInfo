@@ -5,8 +5,8 @@
   color:whitesmoke;
 }
 .image{
-    height : 100px;
-    width : 100px;
+    height : 270px;
+    width : 250px;
 }
 
 .div{
@@ -14,6 +14,10 @@
     flex-wrap: wrap;
     padding:30px;
 }
+.price:hover{
+    color: teal;
+    cursor: pointer;
+}
 .phoneDiv{
-    margin:10px;
+    margin:30px;
 }
