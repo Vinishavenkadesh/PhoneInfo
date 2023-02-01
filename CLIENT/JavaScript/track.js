@@ -32,5 +32,5 @@ arr.forEach((val)=>{
     tracking.innerHTML+=
     `<div class = "phoneDiv"><h1>${val.name}</h1>
     <img class="image" src=${val.img} alt="">
-    <h3>${val.price}</h3></div>`
+    <h3>Price : $${val.price}</h3></div>`
 })
