@@ -1,0 +1,13 @@
+.image{
+    height : 100px;
+    width : 100px;
+}
+
+.div{
+    display:flex;
+    flex-wrap: wrap;
+    padding:30px;
+}
+.phoneDiv{
+    margin:10px;
+}
