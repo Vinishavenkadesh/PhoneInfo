@@ -1,10 +1,15 @@
+//implementing Backend
 const nightmare = require("nightmare");
 const Nightmare = nightmare();
 const express = require("express");
 const Express = express();
-// express import
+const cors = require("cors");
+
+
+Express.use(cors());
+
 const url =
-  "https://www.amazon.in/dp/B09WQY65HN/ref=?pf_rd_r=A3SGG6CCANF9GXKZPZME&pf_rd_p=a3ffd7d5-0dd2-4d6e-baee-351f6aed1a61&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_s=merchandised-search-9&pf_rd_t=&pf_rd_i=1389401031&ie=UTF8&ref_=CLP_MH9_BSMidrange_1&th=1";
+  "https://www.amazon.in/dp/B07WHSCG2C/ref=QAHzEditorial_en_IN_1?pf_rd_r=2VCXANG2DHFVMB52C9BR&pf_rd_p=28190779-68a3-4b32-a9a6-b13da9eb28c9&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_s=merchandised-search-7&pf_rd_t=&pf_rd_i=1389401031&ie=UTF8&ref_=CLP_MH8_BSAffordable_1";
 
 let priceTag;
 async function checkPrice() {
@@ -19,11 +24,12 @@ async function checkPrice() {
 }
 checkPrice();
 console.log("Outside the function:", priceTag);
-//get function
-//listen
-Express.get("/",(req,res)=>{
-  res.send("You got ur Phone")
-  console.log("success")
-})
 
-Express.listen(3000)
+Express.get("/price", (req, res) => {
+  res.send({
+    price: priceTag,
+  });
+  console.log("success");
+});
+
+Express.listen(3000);

@@ -1,0 +1,38 @@
+*{
+  margin:0;
+  padding:0;
+  background-color: white;
+  color:black;
+}
+.image{
+    height : 270px;
+    width : 230px;
+    margin: 30px;
+    margin-bottom:13px;
+}
+#track{
+    display:flex;
+    flex-wrap: wrap;
+    padding:30px;
+    margin:30px;
+    margin-top: 0;
+}
+.phoneDiv{
+    margin-top:50px;
+    font-size: 11px;
+}
+.specs{
+    margin:5px;
+    margin-left: 30px;
+}
+.phonename{
+    margin-left:40px;
+}
+#phoneExplanation{
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    position: absolute;
+    top:0;
+    display:none;
+}
