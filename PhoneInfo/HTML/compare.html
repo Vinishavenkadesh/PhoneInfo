@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      rel="icon"
+      href="https://img.icons8.com/external-icongeek26-outline-colour-icongeek26/256/external-phones-mobile-application-icongeek26-outline-colour-icongeek26.png"
+    />
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comparing</title>
+  </head>
+  <body class="overflow-x-hidden">
+    <div class="bg-black h-[11vh] w-[100vw] flex justify-evenly items-center">
+      <div class="flex w-[60vw] bg-black justify-evenly">
+        <h1 class="italic text-white text-lg font-semibold bg-black ml-[15%]">
+          Phone<span class="text-teal-600 bg-black">Info</span>
+        </h1>
+        <div class="flex">
+          <div>
+            <input
+              type="text"
+              class="w-[35vw] h-[6vh] p-[10px] focus:outline-0"
+              id="search"
+              onInput="getvalue()"
+            />
+            <div id="result" class="absolute cursor-pointer"></div>
+          </div>
+          <img
+            src="../Assets/Images/Search.png"
+            class="h-[30px] w-[30px] pr-[7px] pt-[6px]"
+            alt=""
+            srcset=""
+          />
+        </div>
+      </div>
+      <button
+        class="getStartedBottomButton bg-[#f5f5f5] hover:bg-teal-600 rounded-3xl py-[6px] px-[10px] mr-[30px] items-center cursor-pointer font-semibold justify-end text-black transform transition duration-300 hover:scale-105"
+        type="button"
+      >
+        Compare Now
+      </button>
+    </div>
+    <div class="flex flex-wrap justify-evenly w-[100vw]">
+      <section class="SamsungPhones">
+        <h1 class="pt-[6px] pl-[20px] pb-[6px] font-semibold text-3xl">
+          Samsung Series
+        </h1>
+        <div class="line mt-[1px] ml-[20px] h-0.5 w-[225px] bg-teal-600"></div>
+        <div id="samsung" class="flex flex-wrap justify-evenly mt-[5vh]"></div>
+      </section>
+      <section class="RedmiPhones">
+        <h1 class="pt-[6px] pl-[20px] pb-[6px] font-semibold text-3xl">
+          Redmi Series
+        </h1>
+        <div class="line mt-[1px] ml-[20px] h-0.5 w-[185px] bg-teal-600"></div>
+        <div id="redmi" class="flex flex-wrap justify-evenly mt-[5vh]"></div>
+      </section>
+      <section class="PocoPhones">
+        <h1 class="pt-[6px] pl-[20px] pb-[6px] font-semibold text-3xl">
+          Poco Series
+        </h1>
+        <div class="line mt-[1px] ml-[20px] h-0.5 w-[165px] bg-teal-600"></div>
+        <div id="poco" class="flex flex-wrap justify-evenly mt-[5vh]"></div>
+      </section>
+      <section class="OnePlusPhones">
+        <h1 class="pt-[6px] pl-[20px] pb-[6px] font-semibold text-3xl">
+          OnePlus
+        </h1>
+        <div class="line mt-[1px] ml-[20px] h-0.5 w-[100px] bg-teal-600"></div>
+        <div id="onePlus" class="flex flex-wrap justify-evenly mt-[5vh]"></div>
+      </section>
+    </div>
+    <script src="../JavaScript/compare.js"></script>
+    <script src="../index.js"></script>
+  </body>
+</html>
