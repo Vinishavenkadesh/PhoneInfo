@@ -1,52 +1,36 @@
-const tracking = document.querySelector("#track");
-let phonesArr;
+const submitTrackForm = document.getElementById("submitTrackForm");
 
-const url = "https://phone-specs-api.azharimm.dev/latest";
-fetch(url)
-  .then((res) => res.json())
-  .then((data) => {
-    phonesArr = data.data.phones;
-    buildPhones(phonesArr);
-  });
+submitTrackForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let username = e.target[0].value;
+  let site = e.target[1].value;
+  let url = e.target[2].value;
+  let price = e.target[3].value;
+  let email = e.target[4].value;
 
-function buildPhones(phonesArr) {
-  phonesArr.forEach(async (val) => {
-    const details = val.detail;
-    let specs = await gettingDetails(details);
-    tracking.innerHTML += ` 
-        <div class = "phoneDiv"><h1 class = "phonename">${val.phone_name}</h1>
-          <img class="image" src=${val.image} onclick = phoneExplanation() alt="">
-          <h2 class="specs">Brand name : ${specs.brand}</h2>
-        </div>`;
-  });
-}
+  console.table(username, site, url, price, email);
 
-function phoneExplanation() {
-  phoneExplanation.innerHTML += ` <div class="container">
-  <div class="img_div" >
-  </div>
-  <div class="content">
-  </div>
-</div>`;
-}
+  let body = {
+    name: username,
+    url: url,
+    price: price,
+    email: email,
+    site: site,
+  };
 
-let phoneSpecification;
-async function gettingDetails(details) {
-  await fetch(details)
+  let host = "http://localhost:8000/addtrack";
+
+  fetch(host, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  })
     .then((res) => res.json())
     .then((data) => {
-      phoneSpecification = {
-        brand: data.data.brand,
-        dimension: data.data.dimension,
-        os: data.data.os,
-        storage: data.data.storage,
-      };
-    });
-  return phoneSpecification;
-}
-
-{
-  /* <h3 class="specs">Dimension : ${specs.dimension}</h3>
-<h3 class="specs">OS : ${specs.os}</h3>
-<h3 class="specs">Storage : ${specs.storage}</h3> */
-}
+      console.log(data);
+      alert("SUCCESSFULLY ADDED YOUR TRACK");
+    })
+    .catch((err) => alert(err));
+});

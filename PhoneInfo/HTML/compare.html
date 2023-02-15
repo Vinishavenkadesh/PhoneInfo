@@ -22,15 +22,18 @@
           <div>
             <input
               type="text"
-              class="w-[35vw] h-[6vh] p-[10px] focus:outline-0"
+              class="w-[35vw] pl-[10px] focus:outline-0"
               id="search"
               onInput="getvalue()"
             />
-            <div id="result" class="absolute cursor-pointer"></div>
+            <div
+              id="result"
+              class="absolute cursor-pointer border-2 border-grey"
+            ></div>
           </div>
           <img
             src="../Assets/Images/Search.png"
-            class="h-[30px] w-[30px] pr-[7px] pt-[6px]"
+            class="h-[30px] w-[30px] pr-[7px] pt-[5px] pb-[2px]"
             alt=""
             srcset=""
           />
@@ -39,6 +42,7 @@
       <button
         class="getStartedBottomButton bg-[#f5f5f5] hover:bg-teal-600 rounded-3xl py-[6px] px-[10px] mr-[30px] items-center cursor-pointer font-semibold justify-end text-black transform transition duration-300 hover:scale-105"
         type="button"
+        id="compareBtn"
       >
         Compare Now
       </button>
@@ -73,7 +77,19 @@
         <div id="onePlus" class="flex flex-wrap justify-evenly mt-[5vh]"></div>
       </section>
     </div>
+    <div id="compare-lists" class="hidden">
+      <div class="absolute top-[30px] right-[30px] cursor-pointer z-50">
+        <h1 id="close-compare">X</h1>
+      </div>
+      <div
+        id="display-compare-items"
+        class="h-[100vh] w-[100vw] flex bg-white absolute top-0 p-[30px] justify-evenly"
+      ></div>
+    </div>
     <script src="../JavaScript/compare.js"></script>
     <script src="../index.js"></script>
   </body>
 </html>
+
+
+

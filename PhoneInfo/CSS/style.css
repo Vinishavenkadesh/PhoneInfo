@@ -12,7 +12,7 @@
     width : 19vw;
     object-fit: contain;
     margin-bottom:5vh;
-    margin-top:10vh;
+    margin-top:3vh;
     margin-left:3vh;
     margin-right:3vh;
     justify-content: center;
@@ -48,10 +48,18 @@
     width : 20vw;
     object-fit: contain;
     padding-bottom:20px;
-    align-items: center;
-    
+    align-items: center;    
 }
-.phoneName{
+
+
+.phonename{
+    font-size: large;
+}
+
+.specs{
+    font-size: medium;
+}
+.phoneName{ 
     padding-left:30px;
 }
 
@@ -61,6 +69,10 @@
 }
 .searchBar{
     padding: 10px;
+    width: 37vw;
+    border: 0.5px solid rgba(128, 128, 128, 0.253);
+
+
 }
 .toCompare{
     display: flex;
@@ -79,4 +91,8 @@
 .label h3:hover{
     color: teal;
     font-weight: bold;
+}
+
+#phoneImageClickable{
+    cursor: pointer;
 }

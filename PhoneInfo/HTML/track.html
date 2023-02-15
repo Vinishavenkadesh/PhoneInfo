@@ -1,21 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="../CSS/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../style.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap"
-        rel="stylesheet">
-        <link rel="icon" href="../Assets/Images/Sales_Icon.png">
-    <title>Hot Sales</title>
-</head>
-<body>
-    <div id="phoneExplanation">
+    <title>Tracking</title>
+  </head>
+  <body>
+    <img
+      src="../Assets/Images/Background_img1.png"
+      class="h-screen w-[100vw] absolute top-0 -z-10"
+      alt=""
+      srcset=""
+    />
+    <div class="h-[100vh] w-[100vw] flex justify-center items-center">
+      <div
+        class="bg-gray-100 rounded-lg h-[80vh] w-[60vw] flex justify-start items-center p-8"
+      >
+        <form action="" id="submitTrackForm" class="w-full">
+          <div class="text-l font-medium m-2 mb-4">
+            <label for="name">NAME : </label>
+            <br />
+            <input
+              type="text"
+              placeholder="Username"
+              id="name"
+              class="bg-teal-900 text-white p-2 rounded-sm w-[60%]"
+            />
+          </div>
+          <div class="text-l font-medium m-2 mb-4">
+            <label for="site">Site : </label>
+            <br />
+            <select
+              name="site"
+              id="site"
+              class="bg-teal-900 text-l rounded-sm p-2 text-gray-200 w-[60%]"
+            >
+              <option value="">Select Ecommerce site</option>
+              <option value="amazon">AMAZON</option>
+              <option value="flipkart">FLIPKART</option>
+              <option value="ebay">EBAY</option>
+            </select>
+          </div>
+          <div class="text-l font-medium m-2 mb-4">
+            <label for="name">URL : </label>
+            <br />
+            <input
+              type="text"
+              placeholder="Product URL"
+              id="price"
+              class="bg-teal-900 text-white p-2 rounded-sm w-[60%]"
+            />
+          </div>
+          <div class="text-l font-medium m-2 mb-4">
+            <label for="name">Price : </label>
+            <br />
+            <input
+              type="number"
+              placeholder="Expected price"
+              id="price"
+              class="bg-teal-900 text-white p-2 rounded-sm w-[60%]"
+            />
+          </div>
+          <div class="text-l font-medium m-2 mb-4">
+            <label for="name">Email : </label>
+            <br />
+            <input
+              type="email"
+              placeholder="Email"
+              id="price"
+              class="bg-teal-900 text-white p-2 rounded-sm w-[60%]"
+            />
+            <button
+            type="submit"
+            class="text-base font-medium m-2 mb-4 ml-10 bg-teal-900 p-2 rounded-lg text-gray-200"
+          >
+            SUBMIT
+          </button>
+          </div>
+          
+        </form>
+      </div>
     </div>
-    <div id="track">
-    </div>
-    <script src="../JavaScript/track.js"></script>
-</body>
+    <script type="module" src="../JavaScript/track.js"></script>
+  </body>
 </html>
