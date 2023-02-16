@@ -4,7 +4,7 @@ module.exports = {
     "./index.html",
     "./HTML/compare.html",
     "./HTML/track.html",
-    "./HTML/login.html",
+    "./HTML/signIn.html",
     "./JavaScript/**/*.js",
   ],
   theme: {
