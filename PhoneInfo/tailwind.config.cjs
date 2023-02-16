@@ -4,13 +4,11 @@ module.exports = {
     "./index.html",
     "./HTML/compare.html",
     "./HTML/track.html",
+    "./HTML/login.html",
     "./JavaScript/**/*.js",
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        backgroundImage: "url('')",
-      },
     },
   },
   plugins: [],

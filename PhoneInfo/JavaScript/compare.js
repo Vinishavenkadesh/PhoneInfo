@@ -138,6 +138,7 @@ function getvalue() {
       val.Brand.toLowerCase().includes(text)
     );
   });
+  
   console.log(searchArr);
   if (text === "") {
     result.innerHTML = "";

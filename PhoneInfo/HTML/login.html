@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../Assets/Images/Login_img.png" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Login</title>
+  </head>
+  <body>
+    <img
+      src="../Assets/Images/Background_img1.png"
+      class="w-[100vw] h-[100vh] overflow-hidden absolute top-0 -z-10"
+      alt=""
+      srcset=""
+    />
+    <div class="h-[100vh] w-[100vw] flex justify-evenly items-center">
+      <div class="bg-white h-[70vh] w-[30vw] rounded shadow-sm shadow-white">
+        <div class="flex flex-col justify-center items-center">
+          <h1 class="font-bold text-2xl w-[29vw] ml-[80px] mt-[20px]">
+            Sign Up
+          </h1>
+          <input
+            type="text"
+            placeholder="UseName"
+            id="username"
+            class="focus:outline-0 border-b-2 border-teal-600 px-[8px] mt-[30px] mb-[15px] w-[23vw]"
+          />
+          <input
+            type="text"
+            placeholder="E-mail"
+            id="signup-email"
+            class="focus:outline-0 border-b-2 border-teal-600 px-[8px] mt-[30px] mb-[15px] w-[23vw]"
+          />
+          <input
+            type="text"
+            name=""
+            id="signup-password"
+            placeholder="password"
+            class="focus:outline-0 border-b-2 border-teal-600 px-[8px] mt-[30px] mb-[15px] w-[23vw]"
+          />
+          <div class="flex justify-evenly mt-[5px] w-[15vw]">
+            <button type="button" class="py-[10px] rounded-[3px] text-white">
+              <img
+                src="https://www.dexibell.com/app/uploads/2018/05/google-logo.png"
+                class="h-[45px] w-[45px] rounded-full"
+                alt=""
+              />
+            </button>
+            <button type="button" class="py-[10px] rounded-[3px] text-white">
+              <img
+                src="https://cdn-icons-png.flaticon.com/128/3670/3670032.png"
+                class="h-[45px] w-[45px]"
+                alt=""
+              />
+            </button>
+          </div>
+          <button
+            type="button"
+            id="signUp"
+            class="bg-[linear-gradient(to_right,#02AAB0_0%,#008080_51%,#02AAB0_100%)] text-center uppercase transition-[0.5s] bg-[200%_auto] text-[white] shadow-[0_0_20px_#eee] block m-2.5 px-[60px] w-[23vw] py-[10px] rounded-[5px] hover:bg-[right_center] hover:text-white hover:no-underline items-center"
+          >
+            Sign Up
+          </button>
+        </div>
+      </div>
+      <div class="bg-white h-[70vh] w-[30vw] rounded shadow-sm shadow-white">
+        <div class="flex flex-col justify-center items-center">
+          <h1 class="font-bold text-2xl w-[29vw] ml-[80px] mt-[30px]">Login</h1>
+          <input
+            type="text"
+            placeholder="E-mail"
+            id="login-email"
+            class="focus:outline-0 border-b-2 border-teal-600 px-[8px] mt-[50px] mb-[15px] w-[23vw]"
+          />
+          <input
+            type="text"
+            name=""
+            id="login-password"
+            placeholder="password"
+            class="focus:outline-0 border-b-2 border-teal-600 px-[8px] mt-[30px] mb-[15px] w-[23vw]"
+          />
+          <button
+            type="submit"
+            id="login"
+            value="login"
+            class="bg-[linear-gradient(to_right,#02AAB0_0%,#008080_51%,#02AAB0_100%)] text-center uppercase transition-[0.5s] bg-[200%_auto] text-[white] shadow-[0_0_20px_#eee] block m-2.5 mt-[105px] px-[60px] w-[23vw] py-[10px] rounded-[5px] hover:bg-[right_center] hover:text-white hover:no-underline items-center"
+          >
+            Login
+          </button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="../JavaScript/login.js"></script>
+  </body>
+</html>

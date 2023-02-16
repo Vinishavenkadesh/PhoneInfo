@@ -143,7 +143,7 @@ async function trackContinuous() {
 }
 
 // setInterval(() => {
-trackContinuous();
+// trackContinuous();
 // }, 5000);
 
 app.listen(8000);
