@@ -96,3 +96,22 @@
 #phoneImageClickable{
     cursor: pointer;
 }
+
+/* .hoverDiv {
+    padding: 5px 5px 5px 5px;
+    border-radius: 10px;
+    height: 40vh;
+    width: 22%;
+    margin: 5px 1% 5px 1%;
+    float: left;
+    position: relative;
+    transition: height 0.5s;
+    -webkit-transition: height 0.5s;
+    text-align: center;
+    overflow: hidden;
+    transition: 1.5s;
+  }
+  .hoverDiv:hover {
+    height: 45vh;
+    width: 25vw;
+  } */

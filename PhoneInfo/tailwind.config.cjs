@@ -5,11 +5,11 @@ module.exports = {
     "./HTML/compare.html",
     "./HTML/track.html",
     "./HTML/signIn.html",
+    "./HTML/email.html",
     "./JavaScript/**/*.js",
   ],
   theme: {
-    extend: {
-    },
+    extend: {},
   },
   plugins: [],
 };

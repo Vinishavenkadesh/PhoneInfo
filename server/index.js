@@ -104,8 +104,8 @@ async function sendEmail(email, price, expectedPrice, url) {
       service: "gmail",
       auth: {
         // https://youtu.be/thAP7Fvrql4  <-- refer this video
-        user: "vinishav.ece2020@citchennai.net", // enter you mail here
-        pass: "welcometocit", // enter yor password but not the direct password app password
+        user: "phoneinfo2k23@gmail.com", // enter you mail here
+        pass: process.env.EMAIL_TEST_APP_PSWD, // enter yor password but not the direct password app password
       },
       secure: false,
       tls: {
@@ -117,11 +117,182 @@ async function sendEmail(email, price, expectedPrice, url) {
       to: email,
       subject: "Request for a product",
       html: `
-                <div>
-                    <h2>This is a email from Phone Info</h2>
-                    <p>The product that you have expected is reduced by its price : ${price}</p>
-                    <a href = "${url}"> <h1>Go and check out your product</h1> </a>
-                </div>`,
+      <!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>Reset Password Email Template</title>
+    <meta name="description" content="Reset Password Email Template." />
+    <style type="text/css">
+      a:hover {
+        text-decoration: underline !important;
+      }
+    </style>
+  </head>
+
+  <body
+    marginheight="0"
+    topmargin="0"
+    marginwidth="0"
+    style="margin: 0px; background-color: #f2f3f8; overflow: hidden;"
+    leftmargin="0"
+  >
+    <!--100% body table-->
+    <table
+      cellspacing="0"
+      border="0"
+      cellpadding="0"
+      width="100%"
+      bgcolor="#000000"
+      style="
+        @import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Open+Sans:300,400,600,700);
+        font-family: 'Open Sans', sans-serif;
+      "
+    >
+      <tr>
+        <td>
+          <table
+            style="background-color: #000000; max-width: 670px; margin: 0 auto"
+            width="100%"
+            border="0"
+            align="center"
+            cellpadding="0"
+            cellspacing="0"
+          >
+            <tr>
+              <td style="height: 80px">&nbsp;</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+               <h1 style="color:whitesmoke">Phone<span style="color:teal">Info</span></h1>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td style="height: 20px">&nbsp;</td>
+            </tr>
+            <tr>
+              <td>
+                <table
+                  width="95%"
+                  border="0"
+                  align="center"
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="
+                    max-width: 670px;
+                   background-image: linear-gradient(to bottom right,teal, black);
+                    border-radius: 3px;
+                    text-align: center;
+                    -webkit-box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.06);
+                    -moz-box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.06);
+                    box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.06);
+                  "
+                >
+                  <tr>
+                    <td style="height: 40px">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 0 35px">
+                        <h1 style="font-weight: 600;
+                        font-size: 35px;
+                        color: whitesmoke;">Woohoo!</h1>
+                      <h1
+                        style="
+                          color: whitesmoke;
+                          font-weight: 300;
+                          margin: 0;
+                          font-size: 20px;
+                          font-family: 'Rubik', sans-serif;
+                        "
+                      >
+                        The product that you have been added in PhoneInfo is reduced its price below your budget level.
+                      </h1>
+                      <span
+                        style="
+                          display: inline-block;
+                          vertical-align: middle;
+                          margin: 29px 0 26px;
+                          border-bottom: 1px solid #e9e3e3;
+                          width: 100px;
+                        "
+                      ></span>
+                      <h1
+                      <p
+                       <h1   style="
+                       color: #d9f3f3;
+                       font-size: 15px;
+                       line-height: 24px;
+                       margin: 0;
+                     "
+                   >
+                    Your Budget : ₹${expectedPrice}
+                    </h1>
+                    <h1
+                    <p
+                     <h1   style="
+                     color: #d9f3f3;
+                     font-size: 15px;
+                     line-height: 24px;
+                     margin: 0;
+                   "
+                 >
+                  Current Price : ₹${price}
+                  </h1>
+                    
+                      <a
+                        href="${url}"
+                        style="
+                          background: teal;
+                          text-decoration: none !important;
+                          font-weight: 500;
+                          margin-top: 35px;
+                          color: #fff;
+                          text-transform: uppercase;
+                          font-size: 14px;
+                          padding: 10px 24px;
+                          display: inline-block;
+                          border-radius: 50px;
+                        "
+                        >Get Now</a
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="height: 40px">&nbsp;</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="height: 20px">&nbsp;</td>
+            </tr>
+            <tr>
+              <td style="text-align: center">
+                <p
+                  style="
+                    font-size: 14px;
+                    color: rgba(101, 113, 119, 0.741);
+                    line-height: 18px;
+                    margin: 0 0 0;
+                  "
+                >
+                  &copy; <strong>www.PhoneInfo.com</strong>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td style="height: 80px">&nbsp;</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <!--/100% body table-->
+  </body>
+</html>
+      `,
     });
     console.log(info.response);
     console.log(`successfully sent the email to : ${email}`);

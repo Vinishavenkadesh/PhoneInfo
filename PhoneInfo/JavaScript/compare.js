@@ -10,21 +10,25 @@ const compareLists = document.querySelector("#compare-lists");
 const closeCompare = document.querySelector("#close-compare");
 const displayCompareItemsDiv = document.querySelector("#display-compare-items");
 const phoneImage = document.querySelector("#phoneImageClickable")
+const body = document.querySelector("#body")
+const phonedisplayinput = document.querySelector("#phonedisplayinput")
 
 // const url = "http://localhost:8000/allphones";
 
 compareBtn.addEventListener("click", (e) => {
   // console.log("OPENED");
   compareLists.style.display = "block";
+  body.style.overflow = "hidden"
 });
 
 closeCompare.addEventListener("click", (e) => {
   // console.log("CLOSED");
   compareLists.style.display = "none";
+  body.style.overflow = "auto"
 });
 
 let compareItems = [];
-{
+
   function labelClicked(name) {
     if (compareItems.includes(name)) {
       var index = compareItems.indexOf(name);
@@ -36,8 +40,11 @@ let compareItems = [];
       compareItems.push(name);
       console.log(compareItems);
     } else {
-      alert("Cannot be clickable");
-    }
+
+  document.getElementById(name).checked = false;
+     }
+
+
     displayCompareItemsDiv.innerHTML = ``;
     compareItems.forEach((val) => {
       let filPhones = phones.filter((res) => res.Name == val);
@@ -56,7 +63,7 @@ let compareItems = [];
       </div>`;
     });
   }
-}
+
 
 const url = "http://localhost:5173/JavaScript/Phones.json";
 let phones = [];
@@ -77,8 +84,9 @@ function samsungFun(e) {
   <img class="phoneDisplay" id="phoneImageClickable" src="${val.Image}" />
   <h3 class="phoneName">${val.Name}</h3>
   <h2 class="phoneBrand">Brand : ${val.Brand}</h2>
-    <div class="toCompare"><input type="checkbox" id="'${val.Name}'" onInput="labelClicked('${val.Name}')">
-    <label class="label" for="'${val.Name}'"><h3>Add to compare</h3></label>
+    <div class="toCompare"><input type="checkbox" class="single-checkbox" id="${val.Name}"
+     onInput="labelClicked('${val.Name}')">
+    <label class="label" for="${val.Name}"><h3>Add to compare</h3></label>
   </div>
 </div>`;
   });
@@ -92,8 +100,8 @@ function redmiFun(e) {
     <img class="phoneDisplay" src="${val.Image}">
     <h3 class="phoneName">${val.Name}</h3>
     <h2 class="phoneBrand">Brand : ${val.Brand}</h2>
-    <div class="toCompare"><input type="checkbox" id="'${val.Name}'" onInput="labelClicked('${val.Name}')">
-    <label class="label" for="'${val.Name}'"><h3>Add to compare</h3></label>
+    <div class="toCompare"><input type="checkbox" id="${val.Name}" onInput="labelClicked('${val.Name}')">
+    <label class="label" for="${val.Name}"><h3>Add to compare</h3></label>
     </div>
     </div>`;
   });
@@ -107,8 +115,8 @@ function pocoFun(e) {
     <img class="phoneDisplay" src="${val.Image}">
     <h3 class="phoneName">${val.Name}</h3>
     <h2 class="phoneBrand">Brand : ${val.Brand}</h2>
-    <div class="toCompare"><input type="checkbox" id="'${val.Name}'" onInput="labelClicked('${val.Name}')">
-    <label class="label" for="'${val.Name}'"><h3>Add to compare</h3></label>
+    <div class="toCompare"><input type="checkbox" id="${val.Name}" onInput="labelClicked('${val.Name}')">
+    <label class="label" for="${val.Name}"><h3>Add to compare</h3></label>
     </div>
     </div>`;
   });
@@ -122,7 +130,7 @@ function onePlusFun(e) {
     <img class="phoneDisplay" src="${val.Image}">
     <h3 class="phoneName">${val.Name}</h3>
     <h2 class="phoneBrand">Brand : ${val.Brand}</h2>
-    <div class="toCompare"><input type="checkbox" id="'${val.Name}'" onInput="labelClicked('${val.Name}')">
+    <div class="toCompare"><input type="checkbox" id="${val.Name}" onInput="labelClicked('${val.Name}')">
     <label class="label" for="${val.Name}"><h3>Add to compare</h3></label>
     </div>
     </div>`;
@@ -148,6 +156,8 @@ function getvalue() {
       result.innerHTML += `<h2 class="searchBar">${val.Name}</h2>`;
     });
   }
+
+ 
 
   const searchBar = document.querySelectorAll(".searchBar");
   searchBar.forEach((element) => {
