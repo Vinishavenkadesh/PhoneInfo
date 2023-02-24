@@ -42,6 +42,10 @@ const mobileSchema = mongoose.Schema(
       type: String,
       require: true,
     },
+    Price: {
+      type: Array,
+      require: true,
+    },
   },
   {
     timeStramps: true,

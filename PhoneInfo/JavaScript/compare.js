@@ -9,63 +9,97 @@ const compareBtn = document.querySelector("#compareBtn");
 const compareLists = document.querySelector("#compare-lists");
 const closeCompare = document.querySelector("#close-compare");
 const displayCompareItemsDiv = document.querySelector("#display-compare-items");
-const phoneImage = document.querySelector("#phoneImageClickable")
-const body = document.querySelector("#body")
-const phonedisplayinput = document.querySelector("#phonedisplayinput")
+const phoneExpandLists = document.getElementById("phone-expand-lists");
+const closePhoneExpandBtn = document.getElementById("close-phone-expand");
+const displayPhoneItems = document.getElementById("display-phone-items");
+const phoneImage = document.querySelector(".phoneImageClickable");
+const body = document.querySelector("#body");
+const phonedisplayinput = document.querySelector("#phonedisplayinput");
+const phoneNameCompare = document.querySelector("#phoneName");
+const phoneImageCompare = document.querySelector("#phoneImage");
+const phoneMemoryCompare = document.querySelector("#phoneMemory");
+const phoneDisplayCompare = document.querySelector("#phoneDisplay");
+const phoneCameraCompare = document.querySelector("#phoneCamera");
+const phoneProcessorCompare = document.querySelector("#phoneProcessor");
+const phoneBatteryCompare = document.querySelector("#phoneBattery");
+const phoneECommerceCompare = document.querySelector("#phoneECommerce");
 
 // const url = "http://localhost:8000/allphones";
 
 compareBtn.addEventListener("click", (e) => {
   // console.log("OPENED");
-  compareLists.style.display = "block";
-  body.style.overflow = "hidden"
+
+  if (compareItems.length > 1) {
+    compareLists.style.display = "block";
+    body.style.overflow = "hidden";
+  } else {
+    alert("To Compare atleast click two phones");
+  }
 });
 
 closeCompare.addEventListener("click", (e) => {
   // console.log("CLOSED");
   compareLists.style.display = "none";
-  body.style.overflow = "auto"
+  body.style.overflow = "auto";
+  body.style.overflowX = "hidden"
 });
 
 let compareItems = [];
 
-  function labelClicked(name) {
-    if (compareItems.includes(name)) {
-      var index = compareItems.indexOf(name);
-      if (index !== -1) {
-        compareItems.splice(index, 1);
-        console.log(compareItems);
-      }
-    } else if (compareItems.length < 3) {
-      compareItems.push(name);
+function labelClicked(name) {
+  if (compareItems.includes(name)) {
+    var index = compareItems.indexOf(name);
+    if (index !== -1) {
+      compareItems.splice(index, 1);
       console.log(compareItems);
-    } else {
-
-  document.getElementById(name).checked = false;
-     }
-
-
-    displayCompareItemsDiv.innerHTML = ``;
-    compareItems.forEach((val) => {
-      let filPhones = phones.filter((res) => res.Name == val);
-      displayCompareItemsDiv.innerHTML += `
-      <div class="border-2 border-gray-300 p-[30px]" >
-      <img src="${filPhones[0].Image}" class="h-[170px] w-[170px] pb-[10px] object-contain" alt="" srcset=""/>
-      <h1 class="font-bold">Name : <span class="font-semibold">${filPhones[0].Name}</span></h1>
-      <h1 class="font-bold">Brand : <span class="font-semibold">${filPhones[0].Brand}</h1>
-      <h1 class="font-bold">Memory : <span class="font-semibold">${filPhones[0].Memory}</h1>
-      <h1 class="font-bold">Display : <span class="font-semibold">${filPhones[0].Display}</span></h1>
-      <h1 class="font-bold">Camera : <span class="font-semibold">${filPhones[0].Camera}</span></h1>
-      <h1 class="font-bold">Battery : <span class="font-semibold">${filPhones[0].Battery}</span></h1>
-      <h1 class="font-bold">Proccesor : <span class="font-semibold">${filPhones[0].Processor}</span></h1>
-      <h1 class="font-bold text-blue-500"><a href="${filPhones[0].Amazon}">Amazon</a></h1>
-      <h1 class="font-bold text-blue-500"><a href="${filPhones[0].Flipkart}">Flipkart</a></h1>
-      </div>`;
-    });
+    }
+  } else if (compareItems.length < 3) {
+    compareItems.push(name);
+    console.log(compareItems);
+  } else {
+    document.getElementById(name).checked = false;
   }
 
+  phoneNameCompare.innerHTML = ``;
+  phoneImageCompare.innerHTML = ``;
+  phoneMemoryCompare.innerHTML = ``;
+  phoneDisplayCompare.innerHTML = ``;
+  phoneCameraCompare.innerHTML = ``;
+  phoneBatteryCompare.innerHTML = ``;
+  phoneProcessorCompare.innerHTML = ``;
+  phoneECommerceCompare.innerHTML = ``;
 
+  compareItems.forEach((val) => {
+    let filPhones = phones.filter((res) => res.Name == val);
+    phoneNameCompare.innerHTML += `<h1 class="font-medium">${filPhones[0].Name}</h1>`;
+    phoneImageCompare.innerHTML += ` <img
+    src="${filPhones[0].Image}"
+    class="h-[170px] w-[170px] object-contain"
+  />`;
+    phoneMemoryCompare.innerHTML += `<h1 class="font-medium">${filPhones[0].Memory}</h1>`;
+    phoneDisplayCompare.innerHTML += `<h1 class="font-medium">
+  ${filPhones[0].Display}
+</h1>`;
+    phoneCameraCompare.innerHTML += `<h1 class="font-medium">${filPhones[0].Camera}</h1>`;
+    phoneBatteryCompare.innerHTML += `<h1 class="font-medium">
+  ${filPhones[0].Battery}
+</h1>`;
+    phoneProcessorCompare.innerHTML += `<h1 class="font-medium">
+  ${filPhones[0].Processor}
+</h1>`;
+    phoneECommerceCompare.innerHTML += `<div><button class="px-3 py-1 bg-green-400 rounded-sm text-black mr-2">
+    <a href="${filPhones[0].Amazon}">Amazon</a>
+    </button>
+    <button class="px-3 py-1 bg-green-400 rounded-sm text-black mr-2">
+    <a href="${filPhones[0].Flipkart}">Flipkart</a>
+    </button></div>`;
+  });
+}
+// const url = "http://localhost:8000/allphones";
 const url = "http://localhost:5173/JavaScript/Phones.json";
+console.log("UPDATED")
+
+
 let phones = [];
 fetch(url)
   .then((res) => res.json())
@@ -79,16 +113,24 @@ fetch(url)
 
 function samsungFun(e) {
   let samsungArr = e.filter((val) => val.Brand.toLowerCase() === "samsung");
+  console.log(samsungArr);
   samsungArr.forEach((val) => {
     samsung.innerHTML += `<div>
-  <img class="phoneDisplay" id="phoneImageClickable" src="${val.Image}" />
+  <img class="phoneDisplay phonesLoopSamsung phoneImageClickable" src="${val.Image}" />
   <h3 class="phoneName">${val.Name}</h3>
   <h2 class="phoneBrand">Brand : ${val.Brand}</h2>
-    <div class="toCompare"><input type="checkbox" class="single-checkbox" id="${val.Name}"
+    <div class="toCompare"><input type="checkbox" id="${val.Name}"
      onInput="labelClicked('${val.Name}')">
     <label class="label" for="${val.Name}"><h3>Add to compare</h3></label>
   </div>
-</div>`;
+  </div>`;
+  });
+
+  const phonesLoopSamsung = document.querySelectorAll(".phonesLoopSamsung");
+  phonesLoopSamsung.forEach((div, index) => {
+    div.addEventListener("click", (e) => {
+      showPhoneExpand(samsungArr[index]);
+    });
   });
 }
 
@@ -97,13 +139,20 @@ function redmiFun(e) {
   redmiArr.forEach((val) => {
     redmi.innerHTML += `
     <div>
-    <img class="phoneDisplay" src="${val.Image}">
+    <img class="phoneDisplay phonesLoopRedmi phoneImageClickable" src="${val.Image}">
     <h3 class="phoneName">${val.Name}</h3>
     <h2 class="phoneBrand">Brand : ${val.Brand}</h2>
-    <div class="toCompare"><input type="checkbox" id="${val.Name}" onInput="labelClicked('${val.Name}')">
+    <div class="toCompare"><input type="checkbox" id="${val.Name}"
+     onInput="labelClicked('${val.Name}')">
     <label class="label" for="${val.Name}"><h3>Add to compare</h3></label>
     </div>
     </div>`;
+  });
+  const phonesLoopRedmi = document.querySelectorAll(".phonesLoopRedmi");
+  phonesLoopRedmi.forEach((div, index) => {
+    div.addEventListener("click", (e) => {
+      showPhoneExpand(redmiArr[index]);
+    });
   });
 }
 
@@ -112,13 +161,19 @@ function pocoFun(e) {
   pocoArr.forEach((val) => {
     poco.innerHTML += `
     <div>
-    <img class="phoneDisplay" src="${val.Image}">
+    <img class="phoneDisplay phonesLoopPoco phoneImageClickable" src="${val.Image}">
     <h3 class="phoneName">${val.Name}</h3>
     <h2 class="phoneBrand">Brand : ${val.Brand}</h2>
     <div class="toCompare"><input type="checkbox" id="${val.Name}" onInput="labelClicked('${val.Name}')">
     <label class="label" for="${val.Name}"><h3>Add to compare</h3></label>
     </div>
     </div>`;
+  });
+  const phonesLoopPoco = document.querySelectorAll(".phonesLoopPoco");
+  phonesLoopPoco.forEach((div, index) => {
+    div.addEventListener("click", (e) => {
+      showPhoneExpand(pocoArr[index]);
+    });
   });
 }
 
@@ -127,13 +182,19 @@ function onePlusFun(e) {
   onePlusArr.forEach((val) => {
     onePlus.innerHTML += `
     <div>
-    <img class="phoneDisplay" src="${val.Image}">
+    <img class="phoneDisplay phonesLoopOnePlus phoneImageClickable" src="${val.Image}">
     <h3 class="phoneName">${val.Name}</h3>
     <h2 class="phoneBrand">Brand : ${val.Brand}</h2>
     <div class="toCompare"><input type="checkbox" id="${val.Name}" onInput="labelClicked('${val.Name}')">
     <label class="label" for="${val.Name}"><h3>Add to compare</h3></label>
     </div>
     </div>`;
+  });
+  const phonesLoopOnePlus = document.querySelectorAll(".phonesLoopOnePlus");
+  phonesLoopOnePlus.forEach((div, index) => {
+    div.addEventListener("click", (e) => {
+      showPhoneExpand(onePlusArr[index]);
+    });
   });
 }
 
@@ -142,12 +203,11 @@ function getvalue() {
   let text = search.value;
   let searchArr = phones.filter((val) => {
     return (
-      val.Name.toLowerCase().includes(text) ||
-      val.Brand.toLowerCase().includes(text)
+      val.Name.toLowerCase().includes(text.toLowerCase()) ||
+      val.Name.toLowerCase().includes(text)
     );
   });
-  
-  console.log(searchArr);
+
   if (text === "") {
     result.innerHTML = "";
   } else {
@@ -157,21 +217,115 @@ function getvalue() {
     });
   }
 
- 
-
   const searchBar = document.querySelectorAll(".searchBar");
   searchBar.forEach((element) => {
     element.addEventListener("click", (e) => {
       search.value = e.target.innerHTML;
-      console.log(e.target.innerHTML);
+      const targetPhone = phones.filter((value) => {
+        return value.Name == search.value;
+      });
+      showPhoneExpand(targetPhone[0]);
+      console.log(targetPhone);
+      search.value = "";
       result.style.display = "none";
     });
   });
 }
 
-fetch("phones").then((data) => showInfo(data));
+closePhoneExpandBtn.addEventListener("click", () => {
+  phoneExpandLists.style.display = "none";
+  body.style.overflowX = "auto";
+  body.style.overflowY = "auto";
+});
 
-function showInfo(data) {
-  console.log(data);
+function showPhoneExpand(val) {
+  const name = val.Name;
+  const img = val.Image;
+  const brand = val.Brand;
+  const memory = val.Memory;
+  const display = val.Display;
+  const camera = val.Camera;
+  const battery = val.Battery;
+  const processor = val.Processor;
+  const amazon = val.Amazon;
+  const flipkart = val.Flipkart;
+  const price = val.Price;
+  console.log(val);
+
+  phoneExpandLists.style.display = "block";
+  window.scrollTo(0, 0);
+  body.style.overflow = "hidden";
+
+  const innerHTMLVal = `
+    <img
+    src="${img}"
+    class=" w-[45%] h-[80vh] object-contain "
+  />
+  <div class=" w-[55%]">
+    <!-- about the product -->
+    <div>
+      <div
+        class="bg-yellow-300 h-12 w-full flex justify-start items-center"
+      >
+        <h1 class="pr-2 font-medium text-2xl">ABOUT THE PRODUCT</h1>
+      </div>
+      <h1 class="text-xl font-medium">${name}</h1>
+      <h1 class="mt-3 font-semibold text-xl">
+        <h2 class="mt-2 font-normal">${brand}</h2>
+        Memory: <span class="text-base">${memory}</span>
+        <br />
+        Display : <span class="text-base">${display}</span>
+        <br />
+        Camera : <span class="text-base">${camera}</span
+        ><br />
+        Battery : <span class="text-base">${battery}</span
+        ><br />
+        Processor : <span class="text-base">${processor}</span>
+      </h1>
+      <div class="mt-4 flex">
+        <button
+        onclick="NewTab('${amazon}')"
+          class="px-3 py-1 bg-green-400 rounded-sm text-black mr-2"
+        >
+          AMAZON
+        </button>
+        <button
+        onclick="NewTab('${flipkart}')"
+        class="px-3 py-1 bg-green-400 rounded-sm text-black mr-2">
+          FLIPKART
+        </button>
+      </div>
+    </div>
+    <canvas id="priceTrackerGraph"
+    style="display: block; box-sizing: border-box; height: 240px; width: 90%; margin-top: 2rem"
+    ></canvas>
+  </div>`;
+
+  displayPhoneItems.innerHTML = innerHTMLVal;
+  drawPriceGraph(price);
 }
 
+function drawPriceGraph(price) {
+  const ctx = document.getElementById("priceTrackerGraph");
+
+  const data = price;
+
+  new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: data.map((row) => row.date),
+      datasets: [
+        {
+          label: "Amazon price history",
+          data: data.map((row) => row.value),
+          borderColor: "#FF6384",
+          backgroundColor: "#FFB1C1",
+        },
+      ],
+    },
+  });
+}
+
+function NewTab(url) {
+  window.open(url, "_blank");
+}

@@ -22,18 +22,20 @@
           <div>
             <input
               type="text"
-              class="w-[35vw] pl-[10px] focus:outline-0"
+              class="w-[35vw] p-[8px] focus:outline-0"
               id="search"
               onInput="getvalue()"
             />
-            <div
-              id="result"
-              class="absolute cursor-pointer border-2 border-grey"
-            ></div>
+            <div class="absolute overflow-hidden">
+              <div
+                id="result"
+                class="cursor-pointer h-[25vh] overflow-auto bg-white"
+              ></div>
+            </div>
           </div>
           <img
             src="../Assets/Images/Search.png"
-            class="h-[30px] w-[30px] pr-[7px] pt-[5px] pb-[2px]"
+            class="h-[40px] w-[31px] pr-[7px] pt-[10px] pb-[3px] bg-white"
             alt=""
             srcset=""
           />
@@ -77,16 +79,89 @@
         <div id="onePlus" class="flex flex-wrap justify-evenly mt-[5vh]"></div>
       </section>
     </div>
+    <!-- compare options -->
     <div id="compare-lists" class="hidden">
-      <div class="absolute top-[30px] right-[30px] cursor-pointer z-50">
-        <h1 id="close-compare">X</h1>
+      <div class="absolute top-[30px] bg-black px-3 py-1 rounded-full right-[30px] cursor-pointer z-50">
+        <h1 class="bg-black text-white" id="close-compare">X</h1>
       </div>
+<div>
+  
+      <div class="h-[100%] w-[100%] bg-white absolute top-0 px-[2%] py-[2%]">
+        <div class="flex justify-evenly w-[100%] py-[1%]">
+          <div class="w-[20%] flex justify-center">
+            <h1 class="font-semibold">Product name</h1>
+          </div>
+          <div id="phoneName" class="flex w-[80%] justify-evenly"></div>
+        </div>
+        <hr />
+        <div class="flex justify-evenly w-[100%] py-[1%]">
+          <div class="w-[20%] flex justify-center">
+            <h1 class="font-semibold">Image</h1>
+          </div>
+          <div id="phoneImage" class="flex w-[80%] justify-evenly"></div>
+        </div>
+        <hr />
+        <div class="flex justify-evenly w-[100%] py-[1%]">
+          <div class="w-[20%] flex justify-center">
+            <h1 class="font-semibold">Memory</h1>
+          </div>
+          <div id="phoneMemory" class="flex w-[80%] justify-evenly"></div>
+        </div>
+        <hr />
+        <div class="flex justify-evenly w-[100%] py-[1%]">
+          <div class="w-[20%] flex justify-center">
+            <h1 class="font-semibold">Display</h1>
+          </div>
+          <div id="phoneDisplay" class="flex w-[80%] justify-evenly"></div>
+        </div>
+        <hr />
+        <div class="flex justify-evenly w-[100%] py-[1%]">
+          <div class="w-[20%] flex justify-center">
+            <h1 class="font-semibold">Camera</h1>
+          </div>
+          <div id="phoneCamera" class="flex w-[80%] justify-evenly"></div>
+        </div>
+        <hr />
+        <div class="flex justify-evenly w-[100%] py-[1%]">
+          <div class="w-[20%] flex justify-center">
+            <h1 class="font-semibold">Battery</h1>
+          </div>
+          <div id="phoneBattery" class="flex w-[80%] justify-evenly"></div>
+        </div>
+        <hr />
+        <div class="flex justify-evenly w-[100%] py-[1%]">
+          <div class="w-[20%] flex justify-center">
+            <h1 class="font-semibold">Processor</h1>
+          </div>
+          <div id="phoneProcessor" class="flex w-[80%] justify-evenly"></div>
+        </div>
+        <hr />
+        <div class="flex justify-evenly w-[100%] py-[1%]">
+          <div class="w-[20%] flex justify-center">
+            <h1 class="font-semibold">E-Commerce Link</h1>
+          </div>
+          <div id="phoneECommerce" class="flex w-[80%] justify-evenly"></div>
+        </div>
+      </div>
+</div>
+    </div>
+    <!-- phone expand divs -->
+    <div id="phone-expand-lists" class="hidden">
+      <!-- close btn -->
       <div
-        id="display-compare-items"
+        id="close-phone-expand"
+        class="absolute top-[30px] bg-black px-3 py-1 rounded-full right-[30px] cursor-pointer z-50"
+      >
+        <h1 class="bg-black text-white">X</h1>
+      </div>
+      <!-- phone explands -->
+      <div
+        id="display-phone-items"
         class="h-[100vh] w-[100vw] flex bg-white absolute top-0 p-[30px] justify-evenly"
       ></div>
     </div>
+
     <script src="../JavaScript/compare.js"></script>
-    <script src="../index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
   </body>
 </html>

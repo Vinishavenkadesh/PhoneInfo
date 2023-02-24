@@ -4,7 +4,7 @@ const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-// const fs = require("fs");
+const fs = require("fs");
 const TrackModel = require("./models/TrackSchema");
 const nodemailer = require("nodemailer");
 const puppeteer = require("puppeteer");
@@ -21,7 +21,7 @@ mongoose
   .connect(process.env.MONGOURL)
   .then(() => {
     console.log("MongoDB is connected");
-    // importData();=>importing of database function
+    // importData(); => all phones importing function
   })
   .catch((error) => {
     console.log(error);
@@ -42,6 +42,11 @@ mongoose
 
 app.get("/allphones", async (req, res) => {
   const allPhones = await Product.find({});
+  // try {
+  //   fs.writeFileSync("./models/phonesUpdated.json", JSON.stringify(allPhones))
+  // } catch (err) {
+  //   console.error(err)
+  // }
   res.send(allPhones);
 });
 
@@ -77,7 +82,8 @@ async function trackPrice(url, expectedPrice, email, site) {
   await page.goto(url);
 
   let tag;
-
+  tag = ".a-price-whole";
+  console.log(tag)
   if (site === "amazon") {
     tag = ".a-price-whole";
     console.log("amazon");
@@ -122,7 +128,7 @@ async function sendEmail(email, price, expectedPrice, url) {
   <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
     <title>Reset Password Email Template</title>
-    <meta name="description" content="Reset Password Email Template." />
+    <meta name="description" content="Email" />
     <style type="text/css">
       a:hover {
         text-decoration: underline !important;
@@ -309,12 +315,68 @@ app.get("/allTracks", async (req, res) => {
 async function trackContinuous() {
   const trackDetails = await TrackModel.find({});
   for (const track of trackDetails) {
-    trackPrice(track.url, track.price, track.email, track.site);
+    await trackPrice(track.url, track.price, track.email, track.site);
   }
 }
 
 // setInterval(() => {
 // trackContinuous();
 // }, 5000);
+
+async function dailyPriceTracking() {
+  console.log("-----------PRICE TRACKING------------");
+
+  const allPhones = await Product.find({});
+
+  for (const phone of allPhones) {
+    try {
+      console.log(phone.Name);
+      const priceArr = phone.Price;
+
+      console.log(priceArr);
+
+      //
+      const browser = await puppeteer.launch();
+      const page = await browser.newPage();
+      await page.goto(phone.Amazon);
+
+      const price = await page.$eval(".a-price-whole", (el) => el.textContent);
+      await browser.close();
+
+      // getting today value
+      var today = new Date();
+      var dd = String(today.getDate()).padStart(2, "0");
+      var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+      var yyyy = today.getFullYear();
+      today = mm + "/" + dd + "/" + yyyy;
+
+      // price parsing
+      const orgPriceStr = price.replace(",", "").replace(".", "");
+      const priceInt = parseInt(orgPriceStr);
+
+      priceArr.push({
+        date: today,
+        value: priceInt,
+      });
+
+      console.log(`The ${phone.Name} current price is : `, priceInt);
+
+      //updating the price value array
+      await Product.findByIdAndUpdate(phone._id, {
+        $set: {
+          Price: priceArr,
+        },
+      });
+      console.log("UPDATED SUCCESSFULLY");
+    } catch (error) {
+      console.log("price not found");
+      console.log(error.message);
+    }
+  }
+}
+
+// setInterval(() => {
+// dailyPriceTracking();
+// }, 86400000);
 
 app.listen(8000);

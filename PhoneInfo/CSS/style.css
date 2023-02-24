@@ -1,7 +1,6 @@
 *{
   margin:0;
   padding:0;
-  background-color: white;
   color:black;
   /* box-sizing:border-box;
   outline : 1px solid greenyellow !important ; */
@@ -93,25 +92,36 @@
     font-weight: bold;
 }
 
-#phoneImageClickable{
+.phoneImageClickable{
     cursor: pointer;
 }
-
-/* .hoverDiv {
-    padding: 5px 5px 5px 5px;
-    border-radius: 10px;
-    height: 40vh;
-    width: 22%;
-    margin: 5px 1% 5px 1%;
-    float: left;
-    position: relative;
-    transition: height 0.5s;
-    -webkit-transition: height 0.5s;
-    text-align: center;
-    overflow: hidden;
-    transition: 1.5s;
+  
+  .fade-in-text {
+    color: whitesmoke;
+    animation: fadeIn 10s;
   }
-  .hoverDiv:hover {
-    height: 45vh;
-    width: 25vw;
-  } */
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @-o-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }

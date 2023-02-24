@@ -32,5 +32,8 @@ submitTrackForm.addEventListener("submit", (e) => {
       console.log(data);
       alert("SUCCESSFULLY ADDED YOUR TRACK");
     })
+    .then(() => {
+      window.location = "/index.html";
+    })
     .catch((err) => alert(err));
 });
