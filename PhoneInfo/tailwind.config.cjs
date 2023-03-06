@@ -6,6 +6,7 @@ module.exports = {
     "./HTML/track.html",
     "./HTML/signIn.html",
     "./HTML/email.html",
+    "./HTML/service.html",
     "./JavaScript/**/*.js",
   ],
   theme: {

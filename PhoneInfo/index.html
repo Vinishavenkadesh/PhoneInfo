@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="./CSS/style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap"
       rel="stylesheet"
@@ -13,139 +14,269 @@
     <title>PhoneInfo</title>
   </head>
 
-  <body>
-    <div>
-      <div class="sticky top-[-80px]">
+  <body class="overflow-x-hidden">
+    <div class="sticky top-[-60px] w-[80%] left-[50%]">
+      <img
+        src="./Assets/Images/scrollable.svg"
+        class="absolute right-[50px] top-[100px]"
+        alt=""
+      />
+    </div>
+    <div
+    style="background-image: url(./Assets/Images/Background_img1.png)"
+      class="bg-center bg-cover bg-no-repeat h-screen w-100%"
+    >
+      <div class="absolute top-[205px] right-[215px]">
         <img
-          src="./Assets/Images/scrollable.svg"
-          class="absolute right-[50px] top-[180px]"
+          src="./Assets/Images/phone1.jpg"
+          class="h-[340px] w-[500px]"
           alt=""
         />
       </div>
-      <div
-        style="background-image: url(./Assets/Images/Background_img1.png)"
-        class="bg-center bg-cover bg-no-repeat h-screen w-100%"
-      >
-        <div class="absolute top-[230px] right-[250px]">
-          <img
-            src="./Assets/Images/phone1.jpg"
-            class="h-[330px] w-[500px]"
-            alt=""
-          />
-        </div>
-        <div class="blackContainer top-0 bg-black w-100 h-16">
-          <div class="navbar flex justify-between">
-            <div
-              class="logo flex items-center font-sans justify-between text-[#f5f5f5] font-bold text-xl md:text-2xl lg:text-3xl px-11 py-4"
-            >
-              <h1>Phone<span class="text-teal-600">Info</span></h1>
-            </div>
-            <div
-              class="text-[#f5f5f5] my-auto mr-10 w-[900px] uppercase font-bold flex justify-between"
-            >
-              <ul class="flex justify-between w-[400px]">
-                <li class="hover:text-teal-600 cursor-pointer">
-                  <a href="#">Home</a>
-                </li>
-                <li class="hover:text-teal-600 cursor-pointer">
-                  <a href="./HTML/track.html">Track</a>
-                </li>
-                <li class="hover:text-teal-600 cursor-pointer">
-                  <a href="./HTML/topDeals.html">Top deals</a>
-                </li>
-                <li class="hover:text-teal-600 cursor-pointer">
-                  <a href="./HTML/compare.html">Compare</a>
-                </li>
-              </ul>
-              <ul class="flex justify-between w-[200px]">
-                <li class="hover:text-teal-600 cursor-pointer">
-                  <a id="homeSignIn" href="./HTML/signIn.html">Sign In</a>
-                </li>
-                <li class="hover:text-teal-600 cursor-pointer">
-                  <a href="./HTML/compare.html">Get Started</a>
-                </li>
-              </ul>
-            </div>
+      <div class="blackContainer top-0 bg-black w-100 h-16">
+        <div class="navbar flex justify-between">
+          <div
+            class="logo flex items-center font-sans justify-between text-[#f5f5f5] font-bold text-xl md:text-2xl lg:text-3xl px-11 py-4"
+          >
+            <h1>Phone<span class="text-teal-600">Info</span></h1>
           </div>
-          <div class="parent flex">
-            <div>
-              <section class="text-[#f5f5f5] pt-5 pl-[80px]">
-                <h3 class="font-thin text-6xl leading-1 pt-10">Your Best</h3>
-                <h3 class="font text-6xl leading-1">Electro</h3>
-                <h3 class="font text-6xl leading-1">Accessories</h3>
-                <h3 class="font-thin text-6xl leading-1">Platform</h3>
-                <a href="./HTML/compare.html"
-                  ><button
-                    class="getStartedBottomButton mt-10 bg-[#f5f5f5] hover:bg-teal-600 rounded-full py-3 px-4 cursor-pointer font-bold text-black transform transition duration-300 hover:scale-110"
-                    type="button"
-                  >
-                    Get Started
-                  </button></a
+          <div
+            class="text-[#f5f5f5] my-auto mr-10 w-[900px] uppercase font-bold flex justify-between"
+          >
+            <ul class="flex justify-between w-[400px]">
+              <li class="hover:text-teal-600 cursor-pointer">
+                <a href="#">Home</a>
+              </li>
+              <li class="hover:text-teal-600 cursor-pointer">
+                <a href="./HTML/track.html">Track</a>
+              </li>
+              <li class="hover:text-teal-600 cursor-pointer">
+                <a href="./HTML/service.html">Service</a>
+              </li>
+              <!-- <li class="hover:text-teal-600 cursor-pointer">
+                <a href="./HTML/topDeals.html">Top deals</a>
+              </li> -->
+              <li class="hover:text-teal-600 cursor-pointer">
+                <a href="./HTML/compare.html">Compare</a>
+              </li>
+            </ul>
+            <ul class="flex justify-between w-[200px]">
+              <li class="hover:text-teal-600 cursor-pointer">
+                <a id="homeSignIn" href="./HTML/signIn.html">Sign In</a>
+              </li>
+              <li class="hover:text-teal-600 cursor-pointer">
+                <a href="./HTML/compare.html">Get Started</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="parent flex">
+          <div class="w-[50%]">
+            <section class="text-[#f5f5f5] pt-5 pl-[80px]">
+              <h3 class="font-thin text-6xl leading-1 pt-10">Your Best</h3>
+              <h3 class="font text-6xl leading-1">Electro</h3>
+              <h3 class="font text-6xl leading-1">Accessories</h3>
+              <h3 class="font-thin text-6xl leading-1">Platform</h3>
+              <a href="./HTML/compare.html"
+                ><button
+                  class="getStartedBottomButton mt-10 bg-[#f5f5f5] hover:bg-teal-600 rounded-full py-3 px-4 cursor-pointer font-bold text-black transform transition duration-300 hover:scale-110"
+                  type="button"
                 >
-
-                <div class="line mt-12 h-0.5 w-20 bg-teal-600"></div>
-              </section>
-              <footer class="pl-[80px] text-[#f5f5f5]">
-                <h3 class="footerLight mt-6 font-thin text-xs">
-                  We help people to easily
-                </h3>
-                <h3 class="footerBold font-extralight text-xs">
-                  COMPARE, TRACK, BUY and Find Services
-                </h3>
-                <h3 class="footerLight font-thin text-xs">
-                  of Electronic Accessories.
-                </h3>
-              </footer>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        style="background-image: url(./Assets/Images/Background_img2.png)"
-        class="bg-center bg-cover bg-no-repeat h-screen w-100%"
-      >
-        <div class="absolute top-[764px] right-[250px]">
-          <img
-            src="./Assets/Images/phone2.png"
-            class="h-[335px] w-[500px]"
-            alt=""
-          />
-        </div>
-        <div>
-          <section class="text-[#f5f5f5] pt-[85px] pl-[80px]">
-            <h3 class="font text-5xl leading-1">Advanced Tracking</h3>
-            <h3 class="font text-5xl leading-1">Features.</h3>
-            <h3 class="mt-[40px] font text-xl leading-1">
-              Enables the user to track the
-            </h3>
-            <h3 class="font text-xl leading-1">
-              prices of smartphones on popular
-            </h3>
-            <h3 class="font text-xl leading-1">e-commerce sites like</h3>
-            <h3 class="font text-2xl leading-1">Flipkart, Amazon, and eBay.</h3>
-
-            <a href="./HTML/track.html">
-              <button
-                class="trackNowButton mt-10 bg-[#f5f5f5] hover:bg-[#808080] transform rounded-full py-[10px] px-4 cursor-pointer font-bold text-black"
-                type="button"
+                  Get Started
+                </button></a
               >
-                Track Now →
-              </button></a
-            >
 
-            <h3 class="mt-[50px] font text-l leading-1">
-              Easily compares prices and
-            </h3>
-            <h3 class="font text-l leading-1">
-              find the best deals on smartphones.
-            </h3>
-            <div class="line mt-[5px] h-0.5 w-[260px] bg-teal-600"></div>
-          </section>
+              <div class="line mt-12 h-0.5 w-20 bg-teal-600"></div>
+            </section>
+            <footer class="pl-[80px] text-[#f5f5f5]">
+              <h3 class="footerLight mt-6 font-thin text-xs">
+                We help people to easily
+              </h3>
+              <h3 class="footerBold font-extralight text-xs">
+                COMPARE, TRACK, BUY and Find Services
+              </h3>
+              <h3 class="footerLight font-thin text-xs">
+                of Electronic Accessories.
+              </h3>
+            </footer>
+          </div>
         </div>
       </div>
     </div>
-  >
-    <script src="./index.js" type="module"></script>
-  
-  </body>
+    <div
+      style="background-image: url(./Assets/Images/Background_img2.png)"
+      class="bg-center bg-cover bg-no-repeat h-screen w-100%"
+    >
+      <div class="absolute top-[764px] right-[215px]">
+        <img
+          src="./Assets/Images/phone2.png"
+          class="h-[335px] w-[500px]"
+          alt=""
+        />
+      </div>
+      <div>
+        <section class="text-[#f5f5f5] pt-[85px] pl-[80px]">
+          <h3 class="font text-5xl leading-1">Advanced Tracking</h3>
+          <h3 class="font text-5xl leading-1">Features.</h3>
+          <h3 class="mt-[40px] font text-xl leading-1">
+            Enables the user to track the
+          </h3>
+          <h3 class="font text-xl leading-1">
+            prices of smartphones on popular
+          </h3>
+          <h3 class="font text-xl leading-1">e-commerce sites like</h3>
+          <h3 class="font text-2xl leading-1">Flipkart, Amazon, and eBay.</h3>
+
+          <a href="./HTML/track.html">
+            <button
+              class="trackNowButton mt-10 bg-[#f5f5f5] hover:bg-[#808080] transform rounded-full py-[10px] px-4 cursor-pointer font-bold text-black"
+              type="button"
+            >
+              Track Now →
+            </button></a
+          >
+
+          <h3 class="mt-[50px] font text-l leading-1">
+            Easily compares prices and
+          </h3>
+          <h3 class="font text-l leading-1">
+            find the best deals on smartphones.
+          </h3>
+          <div class="line mt-[5px] h-0.5 w-[260px] bg-teal-600"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="./index.js" type="module"></script>
+</body>
 </html>
+
+    <!-- <div class="firstPage w-[100vw] h-[100vh]">
+      <div class="navbar flex justify-between bg-black text-[#f5f5f5]">
+        <div
+          class="logo flex items-center font-sans justify-between text-[#f5f5f5] font-bold text-xl md:text-2xl lg:text-3xl px-11 py-4"
+        >
+          <h1>Phone<span class="text-teal-600">Info</span></h1>
+        </div>
+        <div
+          class="text-[#f5f5f5] my-auto mr-10 w-[900px] uppercase font-bold flex justify-between"
+        >
+          <ul class="flex justify-between w-[400px]">
+            <li class="hover:text-teal-600 cursor-pointer">
+              <a href="#">Home</a>
+            </li>
+            <li class="hover:text-teal-600 cursor-pointer">
+              <a href="./HTML/track.html">Track</a>
+            </li>
+            <li class="hover:text-teal-600 cursor-pointer">
+              <a href="./HTML/topDeals.html">Top deals</a>
+            </li>
+            <li class="hover:text-teal-600 cursor-pointer">
+              <a href="./HTML/compare.html">Compare</a>
+            </li>
+          </ul>
+          <ul class="flex justify-between w-[200px]">
+            <li class="hover:text-teal-600 cursor-pointer">
+              <a id="homeSignIn" href="./HTML/signIn.html">Sign In</a>
+            </li>
+            <li class="hover:text-teal-600 cursor-pointer">
+              <a href="./HTML/compare.html">Get Started</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="parent lg:flex w-[100%]">
+        <div class="w-[35%]">
+          <section class="text-[#f5f5f5] pt-5 pl-[80px]">
+            <h3 class="font-thin text-6xl leading-1 pt-10">Your Best</h3>
+            <h3 class="font text-6xl leading-1">Electro</h3>
+            <h3 class="font text-6xl leading-1">Accessories</h3>
+            <h3 class="font-thin text-6xl leading-1">Platform</h3>
+            <a href="./HTML/compare.html"
+              ><button
+                class="getStartedBottomButton mt-10 bg-[#f5f5f5] hover:bg-teal-600 rounded-full py-3 px-4 cursor-pointer font-bold text-black transform transition duration-300 hover:scale-110"
+                type="button"
+              >
+                Get Started
+              </button></a
+            >
+
+            <div class="line mt-12 h-0.5 w-20 bg-teal-600"></div>
+          </section>
+          <footer class="pl-[80px] text-[#f5f5f5]">
+            <h3 class="footerLight mt-6 font-thin text-xs">
+              We help people to easily
+            </h3>
+            <h3 class="footerBold font-extralight text-xs">
+              COMPARE, TRACK, BUY and Find Services
+            </h3>
+            <h3 class="footerLight font-thin text-xs">
+              of Electronic Accessories.
+            </h3>
+          </footer>
+        </div>
+        <div class="w-[65%]">
+         <div class="sticky top-[100px] w-[80%] left-[50%]">
+            <img
+              src="./Assets/Images/scrollable.svg"
+              class="absolute right-[12vh] top-[30px]"
+              alt=""
+            />
+          </div> -->
+           <!-- <div class="sm:h-[30vh] sm:w-[50vh] sm:mt-[15vh] sm:pl-[8vh] lg:h-[90vh] lg:w-[80vh] lg:mt-[25vh] lg:ml-[20vh]">
+            <img
+              src="./Assets/Images/phone1.jpg"
+              class=""
+              alt=""
+            />
+          </div> 
+        </div>
+      </div>
+    </div>
+    <div class="secondPage h-[100vh] w-[100vw] flex overflow-auto">
+      <div class="w-[35%]">
+        <section class="text-[#f5f5f5] md:mt-[7.5vh] lg:mt-[9vh] xl:mt-[15vh] pl-[80px]">
+          <h3 class="font text-5xl leading-1">Advanced Tracking</h3>
+          <h3 class="font text-5xl leading-1">Features.</h3>
+          <h3 class="mt-[40px] font text-xl leading-1">
+            Enables the user to track the
+          </h3>
+          <h3 class="font text-xl leading-1">
+            prices of smartphones on popular
+          </h3>
+          <h3 class="font text-xl leading-1">e-commerce sites like</h3>
+          <h3 class="font text-2xl leading-1">Flipkart, Amazon, and eBay.</h3>
+
+          <a href="./HTML/track.html">
+            <button
+              class="trackNowButton mt-10 bg-[#f5f5f5] hover:bg-[#808080] transform rounded-full py-[10px] px-4 cursor-pointer font-bold text-black"
+              type="button"
+            >
+              Track Now →
+            </button></a
+          >
+
+          <h3 class="mt-[50px] font text-l leading-1">
+            Easily compares prices and
+          </h3>
+          <h3 class="font text-l leading-1">
+            find the best deals on smartphones.
+          </h3>
+          <div class="line mt-[5px] h-0.5 w-[260px] bg-teal-600"></div>
+        </section>
+      </div>
+      <div class="w-[65%]">
+        <div class="">
+          <img
+            src="./Assets/Images/phone2.png"
+            class="h-[330px] w-[500px] mt-[25vh] ml-[10vh]"
+            alt=""
+          />
+        </div>
+      </div>
+     
+      
+    </div> --> 
+
+    

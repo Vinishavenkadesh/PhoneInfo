@@ -21,13 +21,13 @@ mongoose
   .connect(process.env.MONGOURL)
   .then(() => {
     console.log("MongoDB is connected");
-    // importData(); => all phones importing function
+    // importData();
   })
   .catch((error) => {
     console.log(error);
   });
 
-// const data = JSON.parse(fs.readFileSync("./models/phones.jsonzz", "utf-8"));
+const data = JSON.parse(fs.readFileSync("./models/phonesUpdated.json", "utf-8"));
 
 // const importData = async () => {
 //   try {
@@ -109,9 +109,8 @@ async function sendEmail(email, price, expectedPrice, url) {
     let transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        // https://youtu.be/thAP7Fvrql4  <-- refer this video
-        user: "phoneinfo2k23@gmail.com", // enter you mail here
-        pass: process.env.EMAIL_TEST_APP_PSWD, // enter yor password but not the direct password app password
+        user: "phoneinfo2k23@gmail.com", 
+        pass: process.env.EMAIL_TEST_APP_PSWD, 
       },
       secure: false,
       tls: {
@@ -369,7 +368,7 @@ async function dailyPriceTracking() {
       });
       console.log("UPDATED SUCCESSFULLY");
     } catch (error) {
-      console.log("price not found");
+      console.log(priceArr[priceArr.length - 1]);
       console.log(error.message);
     }
   }
