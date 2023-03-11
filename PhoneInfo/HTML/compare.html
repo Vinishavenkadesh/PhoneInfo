@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="../style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Comparing</title>
+    <style>
+      ::-webkit-scrollbar {
+        width: 0px;
+      }
+    </style>
   </head>
   <body class="overflow-x-hidden" id="body">
     <div class="bg-black h-[11vh] w-[100vw] flex justify-evenly items-center">
@@ -81,69 +86,70 @@
     </div>
     <!-- compare options -->
     <div id="compare-lists" class="hidden">
-      <div class="absolute top-[30px] bg-black px-3 py-1 rounded-full right-[30px] cursor-pointer z-50">
+      <div
+        class="absolute top-[30px] bg-black px-3 py-1 rounded-full right-[30px] cursor-pointer z-50"
+      >
         <h1 class="bg-black text-white" id="close-compare">X</h1>
       </div>
-<div>
-  
-      <div class="h-[100%] w-[100%] bg-white absolute top-0 px-[2%] py-[2%]">
-        <div class="flex justify-evenly w-[100%] py-[1%]">
-          <div class="w-[20%] flex justify-center">
-            <h1 class="font-semibold">Product name</h1>
+      <div>
+        <div class="h-[100%] w-[100%] bg-white absolute top-0 px-[2%] py-[2%]">
+          <div class="flex justify-evenly w-[100%] py-[1%]">
+            <div class="w-[20%] flex justify-center">
+              <h1 class="font-semibold">Product name</h1>
+            </div>
+            <div id="phoneName" class="flex w-[80%] justify-evenly"></div>
           </div>
-          <div id="phoneName" class="flex w-[80%] justify-evenly"></div>
-        </div>
-        <hr />
-        <div class="flex justify-evenly w-[100%] py-[1%]">
-          <div class="w-[20%] flex justify-center">
-            <h1 class="font-semibold">Image</h1>
+          <hr />
+          <div class="flex justify-evenly w-[100%] py-[1%]">
+            <div class="w-[20%] flex justify-center">
+              <h1 class="font-semibold">Image</h1>
+            </div>
+            <div id="phoneImage" class="flex w-[80%] justify-evenly"></div>
           </div>
-          <div id="phoneImage" class="flex w-[80%] justify-evenly"></div>
-        </div>
-        <hr />
-        <div class="flex justify-evenly w-[100%] py-[1%]">
-          <div class="w-[20%] flex justify-center">
-            <h1 class="font-semibold">Memory</h1>
+          <hr />
+          <div class="flex justify-evenly w-[100%] py-[1%]">
+            <div class="w-[20%] flex justify-center">
+              <h1 class="font-semibold">Memory</h1>
+            </div>
+            <div id="phoneMemory" class="flex w-[80%] justify-evenly"></div>
           </div>
-          <div id="phoneMemory" class="flex w-[80%] justify-evenly"></div>
-        </div>
-        <hr />
-        <div class="flex justify-evenly w-[100%] py-[1%]">
-          <div class="w-[20%] flex justify-center">
-            <h1 class="font-semibold">Display</h1>
+          <hr />
+          <div class="flex justify-evenly w-[100%] py-[1%]">
+            <div class="w-[20%] flex justify-center">
+              <h1 class="font-semibold">Display</h1>
+            </div>
+            <div id="phoneDisplay" class="flex w-[80%] justify-evenly"></div>
           </div>
-          <div id="phoneDisplay" class="flex w-[80%] justify-evenly"></div>
-        </div>
-        <hr />
-        <div class="flex justify-evenly w-[100%] py-[1%]">
-          <div class="w-[20%] flex justify-center">
-            <h1 class="font-semibold">Camera</h1>
+          <hr />
+          <div class="flex justify-evenly w-[100%] py-[1%]">
+            <div class="w-[20%] flex justify-center">
+              <h1 class="font-semibold">Camera</h1>
+            </div>
+            <div id="phoneCamera" class="flex w-[80%] justify-evenly"></div>
           </div>
-          <div id="phoneCamera" class="flex w-[80%] justify-evenly"></div>
-        </div>
-        <hr />
-        <div class="flex justify-evenly w-[100%] py-[1%]">
-          <div class="w-[20%] flex justify-center">
-            <h1 class="font-semibold">Battery</h1>
+          <hr />
+          <div class="flex justify-evenly w-[100%] py-[1%]">
+            <div class="w-[20%] flex justify-center">
+              <h1 class="font-semibold">Battery</h1>
+            </div>
+            <div id="phoneBattery" class="flex w-[80%] justify-evenly"></div>
           </div>
-          <div id="phoneBattery" class="flex w-[80%] justify-evenly"></div>
-        </div>
-        <hr />
-        <div class="flex justify-evenly w-[100%] py-[1%]">
-          <div class="w-[20%] flex justify-center">
-            <h1 class="font-semibold">Processor</h1>
+          <hr />
+          <div class="flex justify-evenly w-[100%] py-[1%]">
+            <div class="w-[20%] flex justify-center">
+              <h1 class="font-semibold">Processor</h1>
+            </div>
+            <div id="phoneProcessor" class="flex w-[80%] justify-evenly"></div>
           </div>
-          <div id="phoneProcessor" class="flex w-[80%] justify-evenly"></div>
-        </div>
-        <hr />
-        <div class="flex justify-evenly w-[100%] py-[1%]">
-          <div class="w-[20%] flex justify-center">
-            <h1 class="font-semibold">E-Commerce Link</h1>
+          <hr />
+          <div class="flex justify-evenly w-[100%] py-[1%]">
+            <div class="w-[20%] flex justify-center">
+              <h1 class="font-semibold">E-Commerce Link</h1>
+            </div>
+            <div id="phoneECommerce" class="flex w-[80%] justify-evenly"></div>
           </div>
-          <div id="phoneECommerce" class="flex w-[80%] justify-evenly"></div>
         </div>
       </div>
-</div>
     </div>
     <!-- phone expand divs -->
     <div id="phone-expand-lists" class="hidden">

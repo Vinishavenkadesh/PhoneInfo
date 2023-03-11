@@ -24,7 +24,6 @@ const phoneProcessorCompare = document.querySelector("#phoneProcessor");
 const phoneBatteryCompare = document.querySelector("#phoneBattery");
 const phoneECommerceCompare = document.querySelector("#phoneECommerce");
 
-// const url = "http://localhost:8000/allphones";
 
 compareBtn.addEventListener("click", (e) => {
   // console.log("OPENED");
@@ -41,7 +40,7 @@ closeCompare.addEventListener("click", (e) => {
   // console.log("CLOSED");
   compareLists.style.display = "none";
   body.style.overflow = "auto";
-  body.style.overflowX = "hidden"
+  body.style.overflowX = "hidden";
 });
 
 let compareItems = [];
@@ -51,11 +50,9 @@ function labelClicked(name) {
     var index = compareItems.indexOf(name);
     if (index !== -1) {
       compareItems.splice(index, 1);
-      console.log(compareItems);
     }
   } else if (compareItems.length < 3) {
     compareItems.push(name);
-    console.log(compareItems);
   } else {
     document.getElementById(name).checked = false;
   }
@@ -95,10 +92,9 @@ function labelClicked(name) {
     </button></div>`;
   });
 }
-// const url = "http://localhost:8000/allphones";
-const url = "http://localhost:5173/JavaScript/Phones.json";
-console.log("UPDATED")
-
+const url = "http://localhost:8000/allphones";
+// const url = "http://localhost:5173/JavaScript/Phones.json";
+console.log("UPDATED");
 
 let phones = [];
 fetch(url)
@@ -113,7 +109,7 @@ fetch(url)
 
 function samsungFun(e) {
   let samsungArr = e.filter((val) => val.Brand.toLowerCase() === "samsung");
-  console.log(samsungArr);
+  // console.log(samsungArr);
   samsungArr.forEach((val) => {
     samsung.innerHTML += `<div>
   <img class="phoneDisplay phonesLoopSamsung phoneImageClickable" src="${val.Image}" />
@@ -225,7 +221,7 @@ function getvalue() {
         return value.Name == search.value;
       });
       showPhoneExpand(targetPhone[0]);
-      console.log(targetPhone);
+      // console.log(targetPhone);
       search.value = "";
       result.style.display = "none";
     });
@@ -267,12 +263,12 @@ function showPhoneExpand(val) {
       <div
         class="bg-yellow-300 h-12 w-full flex justify-start items-center"
       >
-        <h1 class="pr-2 font-medium text-2xl">ABOUT THE PRODUCT</h1>
+        <h1 class="pr-2 font-medium sm:text-[25px] md:text-2xl">ABOUT THE PRODUCT</h1>
       </div>
-      <h1 class="text-xl font-medium">${name}</h1>
+      <h1 class="sm:text-l md:text-xl font-medium">${name}</h1>
       <h1 class="mt-3 font-semibold text-xl">
-        <h2 class="mt-2 font-normal">${brand}</h2>
-        Memory: <span class="text-base">${memory}</span>
+        <h2 class="mt-2 font-normal sm:text-l">${brand}</h2>
+        Memory: <span class="sm:text-xs text-base">${memory}</span>
         <br />
         Display : <span class="text-base">${display}</span>
         <br />

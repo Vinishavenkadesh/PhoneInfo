@@ -15,7 +15,7 @@ app.use(cors());
 
 dotenv.config({ path: "./.env" });
 
-console.log(process.env.MONGOURL);
+// console.log(process.env.MONGOURL);
 mongoose.set("strictQuery", false);
 mongoose
   .connect(process.env.MONGOURL)
@@ -27,7 +27,9 @@ mongoose
     console.log(error);
   });
 
-const data = JSON.parse(fs.readFileSync("./models/phonesUpdated.json", "utf-8"));
+const data = JSON.parse(
+  fs.readFileSync("./models/phonesUpdated.json", "utf-8")
+);
 
 // const importData = async () => {
 //   try {
@@ -74,7 +76,7 @@ app.post("/addtrack", async (req, res) => {
   }
 });
 
-async function trackPrice(url, expectedPrice, email, site) {
+async function trackPrice(id, url, expectedPrice, email, site) {
   console.log("-----------CHECKING------------");
 
   const browser = await puppeteer.launch();
@@ -83,34 +85,43 @@ async function trackPrice(url, expectedPrice, email, site) {
 
   let tag;
   tag = ".a-price-whole";
-  console.log(tag)
+  console.log(tag);
   if (site === "amazon") {
     tag = ".a-price-whole";
-    console.log("amazon");
+    console.log("Amazon");
   } else if (site === "flipkart") {
-    tag = ".";
+    tag = "._30jeq3";
+    console.log("Flipkart");
   } else {
     tag = "#price";
   }
 
-  const price = await page.$eval(tag, (el) => el.textContent);
-  console.log(price);
+  // const price = await page.$eval(tag, (el) => el.textContent);
+  // console.log(price);
+
+  const priceGet = await page.$eval(tag, (el) => el.textContent);
+  console.log(priceGet);
+  const orgPriceStr = priceGet
+    .replace(",", "")
+    .replace(".", "")
+    .replace("₹", "");
+  const price = parseInt(orgPriceStr);
 
   if (price <= expectedPrice) {
-    sendEmail(email, price, expectedPrice, url);
+    sendEmail(id, email, price, expectedPrice, url);
   } else {
     console.log("THE PRICE IS HIGH");
   }
   await browser.close();
 }
 
-async function sendEmail(email, price, expectedPrice, url) {
+async function sendEmail(id, email, price, expectedPrice, url) {
   try {
     let transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "phoneinfo2k23@gmail.com", 
-        pass: process.env.EMAIL_TEST_APP_PSWD, 
+        user: "phoneinfo2k23@gmail.com",
+        pass: process.env.EMAIL_TEST_APP_PSWD,
       },
       secure: false,
       tls: {
@@ -301,6 +312,9 @@ async function sendEmail(email, price, expectedPrice, url) {
     });
     console.log(info.response);
     console.log(`successfully sent the email to : ${email}`);
+    // const deletedProduct = await Product.findByIdAndDelete(id);
+    // console.log("Deleted successfully", deletedProduct);
+
   } catch (error) {
     console.log(error);
   }
@@ -314,7 +328,13 @@ app.get("/allTracks", async (req, res) => {
 async function trackContinuous() {
   const trackDetails = await TrackModel.find({});
   for (const track of trackDetails) {
-    await trackPrice(track.url, track.price, track.email, track.site);
+    await trackPrice(
+      track._id,
+      track.url,
+      track.price,
+      track.email,
+      track.site
+    );
   }
 }
 
@@ -327,49 +347,58 @@ async function dailyPriceTracking() {
 
   const allPhones = await Product.find({});
 
+  // getting today value
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, "0");
+  var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  var yyyy = today.getFullYear();
+  today = mm + "/" + dd + "/" + yyyy;
+
   for (const phone of allPhones) {
-    try {
-      console.log(phone.Name);
-      const priceArr = phone.Price;
+    console.log(phone.Name);
+    const priceArr = phone.Price;
+    console.log(priceArr);
 
-      console.log(priceArr);
+    if (priceArr[priceArr.length - 1].date !== today) {
+      try {
+        //
+        const browser = await puppeteer.launch();
+        const page = await browser.newPage();
+        await page.goto(phone.Amazon);
 
-      //
-      const browser = await puppeteer.launch();
-      const page = await browser.newPage();
-      await page.goto(phone.Amazon);
+        const price = await page.$eval(
+          ".a-price-whole",
+          (el) => el.textContent
+        );
+        await browser.close();
 
-      const price = await page.$eval(".a-price-whole", (el) => el.textContent);
-      await browser.close();
+        // price parsing
+        const orgPriceStr = price.replace(",", "").replace(".", "");
+        const priceInt = parseInt(orgPriceStr);
 
-      // getting today value
-      var today = new Date();
-      var dd = String(today.getDate()).padStart(2, "0");
-      var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-      var yyyy = today.getFullYear();
-      today = mm + "/" + dd + "/" + yyyy;
+        priceArr.push({
+          date: today,
+          value: priceInt,
+        });
 
-      // price parsing
-      const orgPriceStr = price.replace(",", "").replace(".", "");
-      const priceInt = parseInt(orgPriceStr);
+        console.log(`The ${phone.Name} current price is : `, priceInt);
 
-      priceArr.push({
-        date: today,
-        value: priceInt,
-      });
-
-      console.log(`The ${phone.Name} current price is : `, priceInt);
-
-      //updating the price value array
-      await Product.findByIdAndUpdate(phone._id, {
-        $set: {
-          Price: priceArr,
-        },
-      });
-      console.log("UPDATED SUCCESSFULLY");
-    } catch (error) {
-      console.log(priceArr[priceArr.length - 1]);
-      console.log(error.message);
+        //updating the price value array
+        await Product.findByIdAndUpdate(phone._id, {
+          $set: {
+            Price: priceArr,
+          },
+        });
+        console.log("UPDATED SUCCESSFULLY");
+      } catch (error) {
+        console.log(error.message);
+        console.log(priceArr[priceArr.length - 1]);
+        await Product.findByIdAndUpdate(phone._id, {
+          $set: {
+            Price: priceArr[priceArr.length - 1],
+          },
+        });
+      }
     }
   }
 }
