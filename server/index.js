@@ -9,6 +9,7 @@ const TrackModel = require("./models/TrackSchema");
 const nodemailer = require("nodemailer");
 const puppeteer = require("puppeteer");
 const Product = require("./models/mobileModels");
+const Track = require("./models/TrackSchema");
 
 app.use(express.json());
 app.use(cors());
@@ -312,9 +313,12 @@ async function sendEmail(id, email, price, expectedPrice, url) {
     });
     console.log(info.response);
     console.log(`successfully sent the email to : ${email}`);
-    // const deletedProduct = await Product.findByIdAndDelete(id);
-    // console.log("Deleted successfully", deletedProduct);
-
+    try {
+      await Track.deleteOne({ _id: id });
+    } catch (error) {
+      console.log(error)
+    }
+    
   } catch (error) {
     console.log(error);
   }
