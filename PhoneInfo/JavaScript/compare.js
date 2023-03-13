@@ -92,7 +92,9 @@ function labelClicked(name) {
     </button></div>`;
   });
 }
-const url = "http://localhost:8000/allphones";
+
+const url = "https://phoneinfo-rpzt.onrender.com/allphones"
+// const url = "http://localhost:8000/allphones";
 // const url = "http://localhost:5173/JavaScript/Phones.json";
 console.log("UPDATED");
 
