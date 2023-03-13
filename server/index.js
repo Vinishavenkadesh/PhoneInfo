@@ -14,6 +14,8 @@ const Track = require("./models/TrackSchema");
 app.use(express.json());
 app.use(cors());
 
+const PORT = process.env.PORT || 8000
+
 dotenv.config({ path: "./.env" });
 
 // console.log(process.env.MONGOURL);
@@ -353,10 +355,11 @@ async function dailyPriceTracking() {
 
   // getting today value
   var today = new Date();
-  var dd = String(today.getDate()).padStart(2, "0");
-  var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-  var yyyy = today.getFullYear();
-  today = mm + "/" + dd + "/" + yyyy;
+  // var dd = String(today.getDate()).padStart(2, "0");
+  // var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  // var yyyy = today.getFullYear();
+  // today = mm + "/" + dd + "/" + yyyy;
+  today = 03 + "/" + 13 + "/" + 2023;
 
   for (const phone of allPhones) {
     console.log(phone.Name);
@@ -411,4 +414,10 @@ async function dailyPriceTracking() {
 // dailyPriceTracking();
 // }, 86400000);
 
-app.listen(8000);
+
+app.get("/",(req,res)=>{
+ res.send(`Server running Successfully`)
+})
+app.listen(PORT , ()=>{
+  console.log(`Listening to the port ` + PORT)
+});
