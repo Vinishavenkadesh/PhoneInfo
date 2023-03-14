@@ -14,11 +14,11 @@ const Track = require("./models/TrackSchema");
 app.use(express.json());
 app.use(cors());
 
-const PORT = process.env.PORT || 8000
+const PORT = process.env.PORT || 8000;
 
 dotenv.config({ path: "./.env" });
 
-process.env.CI = true
+// process.env.CI = true
 
 // console.log(process.env.MONGOURL);
 mongoose.set("strictQuery", false);
@@ -32,9 +32,9 @@ mongoose
     console.log(error);
   });
 
-const data = JSON.parse(
-  fs.readFileSync("./models/phonesUpdated.json", "utf-8")
-);
+// const data = JSON.parse(
+//   fs.readFileSync("./models/phonesUpdated.json", "utf-8")
+// );
 
 // const importData = async () => {
 //   try {
@@ -50,9 +50,9 @@ const data = JSON.parse(
 app.get("/allphones", async (req, res) => {
   const allPhones = await Product.find({});
   // try {
-  //   fs.writeFileSync("./models/phonesUpdated.json", JSON.stringify(allPhones))
+  //   fs.writeFileSync("./models/phonesUpdated.json", JSON.stringify(allPhones));
   // } catch (err) {
-  //   console.error(err)
+  //   console.error(err);
   // }
   res.send(allPhones);
 });
@@ -320,9 +320,8 @@ async function sendEmail(id, email, price, expectedPrice, url) {
     try {
       await Track.deleteOne({ _id: id });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-    
   } catch (error) {
     console.log(error);
   }
@@ -416,10 +415,9 @@ async function dailyPriceTracking() {
 // dailyPriceTracking();
 // }, 86400000);
 
-
-app.get("/",(req,res)=>{
- res.send(`Server running Successfully`)
-})
-app.listen(PORT , ()=>{
-  console.log(`Listening to the port ` + PORT)
+app.get("/", (req, res) => {
+  res.send(`Server running Successfully`);
+});
+app.listen(PORT, () => {
+  console.log(`Listening to the port ` + PORT);
 });
