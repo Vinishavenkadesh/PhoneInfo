@@ -18,6 +18,7 @@ const PORT = process.env.PORT || 8000
 
 dotenv.config({ path: "./.env" });
 
+process.env.CI = true
 
 // console.log(process.env.MONGOURL);
 mongoose.set("strictQuery", false);
