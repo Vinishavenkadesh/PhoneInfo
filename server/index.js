@@ -17,7 +17,7 @@ app.use(cors());
 const PORT = process.env.PORT || 8000
 
 dotenv.config({ path: "./.env" });
-process.env.CI = false
+
 
 // console.log(process.env.MONGOURL);
 mongoose.set("strictQuery", false);
