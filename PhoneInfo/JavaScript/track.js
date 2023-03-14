@@ -18,8 +18,8 @@ submitTrackForm.addEventListener("submit", (e) => {
     site: site,
   };
 
-  let host = "http://localhost:8000/addtrack";
-
+  // let host = "http://localhost:8000/addtrack";
+  let host = "https://phoneinfo-rpzt.onrender.com/allphones/addtrack"
   fetch(host, {
     method: "POST",
     headers: {

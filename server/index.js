@@ -32,20 +32,20 @@ mongoose
     console.log(error);
   });
 
-// const data = JSON.parse(
-//   fs.readFileSync("./models/phonesUpdated.json", "utf-8")
-// );
+const data = JSON.parse(
+  fs.readFileSync("./models/phones.json", "utf-8")
+);
 
-// const importData = async () => {
-//   try {
-//     await Product.create(data);
-//     console.log("data successfully imported");
-//     // to exit the process
-//     process.exit();
-//   } catch (error) {
-//     console.log("error", error);
-//   }
-// };
+const importData = async () => {
+  try {
+    await Product.create(data);
+    console.log("data successfully imported");
+    // to exit the process
+    process.exit();
+  } catch (error) {
+    console.log("error", error);
+  }
+};
 
 app.get("/allphones", async (req, res) => {
   const allPhones = await Product.find({});
@@ -356,11 +356,10 @@ async function dailyPriceTracking() {
 
   // getting today value
   var today = new Date();
-  // var dd = String(today.getDate()).padStart(2, "0");
-  // var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-  // var yyyy = today.getFullYear();
-  // today = mm + "/" + dd + "/" + yyyy;
-  today = 03 + "/" + 13 + "/" + 2023;
+  var dd = String(today.getDate()).padStart(2, "0");
+  var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  var yyyy = today.getFullYear();
+  today = mm + "/" + dd + "/" + yyyy;
 
   for (const phone of allPhones) {
     console.log(phone.Name);
