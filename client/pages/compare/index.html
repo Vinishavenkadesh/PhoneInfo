@@ -7,8 +7,8 @@
       rel="icon"
       href="https://img.icons8.com/external-icongeek26-outline-colour-icongeek26/256/external-phones-mobile-application-icongeek26-outline-colour-icongeek26.png"
     />
-    <link rel="stylesheet" href="../CSS/style.css" />
-    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="/pages/compare/style.css" />
+    <link rel="stylesheet" href="./style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Comparing</title>
     <style>
@@ -19,17 +19,19 @@
   </head>
   <body class="overflow-x-hidden" id="body">
     <div class="bg-black h-[11vh] w-[100vw] flex justify-evenly items-center">
-      <div class="flex w-[60vw] bg-black justify-evenly">
-        <h1 class="italic text-white text-lg font-semibold bg-black ml-[15%]">
-          Phone<span class="text-teal-600 bg-black">Info</span>
-        </h1>
+      <div class="flex w-[100vw] bg-black justify-evenly">
         <div class="flex">
+          <h1
+            id="title-compare"
+            class="italic text-white text-lg font-semibold bg-black ml-[15%]"
+          >
+            Phone<span class="text-teal-600 bg-black">Info</span>
+          </h1>
           <div>
             <input
               type="text"
-              class="w-[35vw] p-[8px] focus:outline-0"
+              class="w-[35vw] p-[8px] ml-[16px] focus:outline-0"
               id="search"
-              onInput="getvalue()"
             />
             <div class="absolute overflow-hidden">
               <div
@@ -38,21 +40,15 @@
               ></div>
             </div>
           </div>
-          <img
-            src="../Assets/Images/Search.png"
-            class="h-[40px] w-[31px] pr-[7px] pt-[10px] pb-[3px] bg-white"
-            alt=""
-            srcset=""
-          />
         </div>
+        <button
+          class="getStartedBottomButton bg-[#f5f5f5] hover:bg-teal-600 rounded-3xl py-[6px] px-[10px] items-center cursor-pointer font-semibold justify-end text-black transform transition duration-300 hover:scale-105"
+          type="button"
+          id="compareBtn"
+        >
+          Compare Now
+        </button>
       </div>
-      <button
-        class="getStartedBottomButton bg-[#f5f5f5] hover:bg-teal-600 rounded-3xl py-[6px] px-[10px] mr-[30px] items-center cursor-pointer font-semibold justify-end text-black transform transition duration-300 hover:scale-105"
-        type="button"
-        id="compareBtn"
-      >
-        Compare Now
-      </button>
     </div>
     <div class="flex flex-wrap justify-evenly w-[100vw]">
       <section class="SamsungPhones">
@@ -167,7 +163,7 @@
       ></div>
     </div>
 
-    <script src="../JavaScript/compare.js"></script>
+    <script src="/pages/compare/compare.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
   </body>
 </html>

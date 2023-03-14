@@ -1,5 +1,14 @@
 import "./style.css";
 
+const phone1 = new URL("/phone1.jpg", import.meta.url).href;
+document.getElementById("phone1").src = phone1;
+
+const phone2 = new URL("/phone2.png", import.meta.url).href;
+document.getElementById("phone2").src = phone2;
+
+const scrollable = new URL("/scrollable.svg", import.meta.url).href;
+document.getElementById("scrollable").src = scrollable;
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
 import {
   getAuth,

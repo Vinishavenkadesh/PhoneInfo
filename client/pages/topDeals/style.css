@@ -1,0 +1,158 @@
+*{
+    margin:0;
+    padding:0;
+    /* color:black; */
+    box-sizing:border-box;
+    /* outline : 1px solid greenyellow !important ;  */
+  }
+  .firstPage{
+      background: rgb(0,0,0);
+      background: linear-gradient(0deg, rgba(0,0,0,1) 35%, rgba(4,33,50,1) 100%); 
+  }
+  
+  .secondPage{
+      background: rgb(0,0,0);
+      background: linear-gradient(140deg, rgba(0,0,0,1) 25%, rgba(4,33,50,1) 100%);
+  }
+  
+  .image{
+      height : 50vh;
+      width : 19vw;
+      object-fit: contain;
+      margin-bottom:5vh;
+      margin-top:3vh;
+      margin-left:3vh;
+      margin-right:3vh;
+      justify-content: center;
+      align-items: center;}
+      
+  #track{
+      display:flex;
+      flex-wrap: wrap;
+      padding:30px;
+      margin:30px;
+      margin-top: 0;
+  }
+  .phoneDiv{
+      margin-top:50px;
+      font-size: 11px;
+  }
+  .specs{
+      margin:5px;
+      margin-left: 30px;
+  }
+  
+  #phoneExplanation{
+      height: 100vh;
+      width: 100vw;
+      background-color: white;
+      position: absolute;
+      top:0;
+      display:none;
+  }
+  
+  .phonesOuterDiv {
+      width: 280px;
+  }
+  
+  .phoneDisplay { 
+      height : 50vh;
+      width : 100%;
+      object-fit: contain;
+      padding-bottom:20px;
+      align-items: center;    
+  }
+  
+  @media screen and (max-width : 450px) {
+      #compareBtn { 
+          padding-top: 4px;   
+          padding-bottom: 4px;   
+          font-size: 10px;
+          margin-right: 0px;
+          margin-left: 10px;
+      }
+      #phoneInfoHeading {
+          margin-left: 0px;
+          margin-right: 10px;
+      }
+      #title-compare{
+        margin-left: 0;
+      }
+  }
+  
+  
+  .phonename{
+      font-size: large;
+  }
+  
+  .specs{
+      font-size: medium;
+  }
+  .phoneName{ 
+      padding-left:30px;
+  }
+  
+  .phoneBrand{
+      padding-left:30px;
+      color: grey;
+  }
+  .searchBar{
+      padding: 10px;
+      width: 37vw;
+      border: 0.5px solid rgba(128, 128, 128, 0.253);
+  
+  
+  }
+  .toCompare{
+      display: flex;
+      padding-left: 31px;
+      padding-bottom: 30px;
+      
+  }
+  .label,#check{
+      cursor: pointer;
+  }
+  .label h3{
+      padding-left: 10px;
+      font-size:small;
+  }
+  
+  .label h3:hover{
+      color: teal;
+      font-weight: bold;
+  }
+  
+  .phoneImageClickable{
+      cursor: pointer;
+  }
+    
+    .fade-in-text {
+      color: whitesmoke;
+      animation: fadeIn 10s;
+    }
+    
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    
+    @-moz-keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    
+    @-webkit-keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    
+    @-o-keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    
+    @-ms-keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    

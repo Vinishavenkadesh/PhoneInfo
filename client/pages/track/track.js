@@ -1,5 +1,10 @@
 const submitTrackForm = document.getElementById("submitTrackForm");
 
+const trackimg1 = new URL("/Track_img.jpg", import.meta.url).href;
+document.getElementById("trackimg1").style.backgroundImage = `url(${trackimg1})`
+const trackimg2 = new URL("/Track_img.jpg", import.meta.url).href;
+document.getElementById("trackimg2").style.backgroundImage = `url(${trackimg2})`
+
 submitTrackForm.addEventListener("submit", (e) => {
   e.preventDefault();
   let username = e.target[0].value;

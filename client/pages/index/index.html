@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="https://img.icons8.com/emoji/512/mobile-phone.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="/pages/index/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>PhoneInfo</title>
+    <style>
+      .firstPage{
+      background: rgb(0,0,0);
+      background: linear-gradient(0deg, rgba(0,0,0,1) 35%, rgba(4,33,50,1) 100%); 
+  }
+  
+  .secondPage{
+      background: rgb(0,0,0);
+      background: linear-gradient(140deg, rgba(0,0,0,1) 25%, rgba(4,33,50,1) 100%);
+  }
+  
+  .image{
+      height : 50vh;
+      width : 19vw;
+      object-fit: contain;
+      margin-bottom:5vh;
+      margin-top:3vh;
+      margin-left:3vh;
+      margin-right:3vh;
+      justify-content: center;
+      align-items: center;}
+    </style>
+  </head>
+
+  <body class="overflow-x-hidden">
+    <div class="sticky top-[-60px] w-[80%] left-[50%]">
+      <img
+        id="scrollable"
+        class="sm:hidden xl:block absolute right-[50px] top-[100px] "
+        alt=""
+      />
+      
+    </div>
+    <div
+      class="firstPage bg-center bg-cover bg-no-repeat sm:h-[100vh] md:h-screen w-100%"
+    >
+      <div class="absolute top-[205px] right-[215px]">
+        <img
+        id="phone1"
+          class="sm:hidden xl:block lg:h-[340px] w-[500px]"
+          alt=""
+        />
+        
+      </div>
+      <div class="blackContainer top-0 bg-black w-100 h-16">
+        <div class="navbar flex justify-between">
+          <div
+            class="logo flex items-center font-sans justify-between text-[#f5f5f5] font-bold text-xl md:text-2xl lg:text-3xl px-11 py-4"
+          >
+            <h1>Phone<span class="text-teal-600">Info</span></h1>
+          </div>
+          <div
+            class="text-[#f5f5f5] my-auto mr-10 w-[900px] uppercase font-bold flex justify-between"
+          >
+            <ul class="flex justify-between w-[400px]">
+              <li class="hover:text-teal-600 cursor-pointer">
+                <a href="#">Home</a>
+              </li>
+              <li class="hover:text-teal-600 cursor-pointer">
+                <a href="/track">Track</a>
+              </li>
+              <li class="hover:text-teal-600 cursor-pointer">
+                <a href="/service">Service</a>
+              </li>
+              <!-- <li class="hover:text-teal-600 cursor-pointer">
+                <a href="../client/pages/topDeals/topDeals.html">Top deals</a>
+              </li> -->
+              <li class="hover:text-teal-600 cursor-pointer">
+                <a href="/compare">Compare</a>
+              </li>
+            </ul>
+            <ul class="flex justify-between w-[200px]">
+              <li class="hover:text-teal-600 cursor-pointer">
+                <a id="homeSignIn" href="/signIn">Sign In</a>
+              </li>
+              <li class="hover:text-teal-600 cursor-pointer">
+                <a href="/compare">Get Started</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="parent lg:flex">
+          <div class="w-[50%]">
+            <section class="text-[#f5f5f5] pt-5 pl-[80px]">
+              <h3 class="font-thin text-6xl leading-1 pt-10">Your Best</h3>
+              <h3 class="font text-6xl leading-1">Electro</h3>
+              <h3 class="font text-6xl leading-1">Accessories</h3>
+              <h3 class="font-thin text-6xl leading-1">Platform</h3>
+              <a href="/compare"
+                ><button
+                  class="getStartedBottomButton mt-10 bg-[#f5f5f5] hover:bg-teal-600 rounded-full py-3 px-4 cursor-pointer font-bold text-black transform transition duration-300 hover:scale-110"
+                  type="button"
+                >
+                  Get Started
+                </button></a
+              >
+
+              <div class="line mt-12 h-0.5 w-20 bg-teal-600"></div>
+            </section>
+            <footer class="pl-[80px] text-[#f5f5f5]">
+              <h3 class="footerLight mt-6 font-thin text-xs">
+                We help people to easily
+              </h3>
+              <h3 class="footerBold font-extralight text-xs">
+                COMPARE, TRACK, BUY and Find Services
+              </h3>
+              <h3 class="footerLight font-thin text-xs">
+                of Electronic Accessories.
+              </h3>
+            </footer>
+          </div>
+        </div>
+        <!-- <img src="./Assets/Images/Res_Scrollable 1.png" class="ml-[10vh] mt-[3vh] lg:hidden" alt=""> -->
+      </div>
+    </div>
+    <div
+      class="secondPage bg-center bg-cover bg-no-repeat sm:h-[60vh] md:h-screen w-100%"
+    >
+      <div class="absolute top-[123.5vh] right-[215px]">
+        <img 
+        id="phone2"
+          class="sm:hidden xl:block h-[335px] w-[500px]"
+          alt=""
+        />
+      </div>
+      <div>
+        <section class="text-[#f5f5f5] pt-[85px] pl-[80px]">
+          <h3 class="font text-5xl leading-1">Advanced Tracking</h3>
+          <h3 class="font text-5xl leading-1">Features.</h3>
+          <h3 class="mt-[40px] font text-xl leading-1">
+            Enables the user to track the
+          </h3>
+          <h3 class="font text-xl leading-1">
+            prices of smartphones on popular
+          </h3>
+          <h3 class="font text-xl leading-1">e-commerce sites like</h3>
+          <h3 class="font text-2xl leading-1">Flipkart, Amazon, and eBay.</h3>
+
+          <a href="/track">
+            <button
+              class="trackNowButton mt-10 bg-[#f5f5f5] hover:bg-[#808080] transform rounded-full py-[10px] px-4 cursor-pointer font-bold text-black"
+              type="button"
+            >
+              Track Now →
+            </button></a
+          >
+
+          <h3 class="mt-[50px] font text-l leading-1">
+            Easily compares prices and
+          </h3>
+          <h3 class="font text-l leading-1">
+            find the best deals on smartphones.
+          </h3>
+          <div class="line mt-[5px] h-0.5 w-[260px] bg-teal-600"></div>
+          <div>
+
+          </div>
+        </section>
+        <!-- <img src="./Assets/Images/Res_Scrollable 2.png" class="ml-[10vh] mt-[3vh] lg:hidden" alt=""> -->
+        
+      </div>
+        </div>
+    </div>
+  </div>
+
+  <script src="/pages/index/index.js" type="module"></script>
+</body>
+</html>
+
+
+    

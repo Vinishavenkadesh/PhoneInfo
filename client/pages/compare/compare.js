@@ -2,9 +2,9 @@ const allPhones = document.querySelector("#allPhones");
 const samsung = document.querySelector("#samsung");
 const redmi = document.querySelector("#redmi");
 const poco = document.querySelector("#poco");
-const result = document.querySelector("#result");
 const onePlus = document.querySelector("#onePlus");
 const search = document.getElementById("search");
+const result = document.querySelector("#result");
 const compareBtn = document.querySelector("#compareBtn");
 const compareLists = document.querySelector("#compare-lists");
 const closeCompare = document.querySelector("#close-compare");
@@ -93,9 +93,10 @@ function labelClicked(name) {
   });
 }
 
-const url = "https://phoneinfo-rpzt.onrender.com/allphones"
+// const url = "https://phoneinfo-rpzt.onrender.com/allphones";
 // const url = "http://localhost:8000/allphones";
-// const url = "http://localhost:5173/JavaScript/Phones.json";
+const url = new URL("/phones.json", import.meta.url).href;
+console.log(url)
 console.log("UPDATED");
 
 let phones = [];
@@ -113,16 +114,22 @@ function samsungFun(e) {
   let samsungArr = e.filter((val) => val.Brand.toLowerCase() === "samsung");
   // console.log(samsungArr);
   samsungArr.forEach((val) => {
-    samsung.innerHTML += `<div>
-  <img class="phoneDisplay phonesLoopSamsung phoneImageClickable" src="${val.Image}" />
+    samsung.innerHTML += `<div class="phonesOuterDiv">
+  <img class="phoneDisplay phonesLoopSamsung phoneImageClickableSamsung" src="${val.Image}" />
   <h3 class="phoneName">${val.Name}</h3>
   <h2 class="phoneBrand">Brand : ${val.Brand}</h2>
-    <div class="toCompare"><input type="checkbox" id="${val.Name}"
-     onInput="labelClicked('${val.Name}')">
+    <div class="toCompare"><input class="labelClickedSamsung" type="checkbox" id="${val.Name}">
     <label class="label" for="${val.Name}"><h3>Add to compare</h3></label>
   </div>
   </div>`;
   });
+
+  const phonesLabelClickingSamsung = document.querySelectorAll(".labelClickedSamsung");
+  phonesLabelClickingSamsung.forEach((phones,index) => { 
+    phones.addEventListener ("click",(val) => {
+      labelClicked(samsungArr[index].Name);
+    })
+  })
 
   const phonesLoopSamsung = document.querySelectorAll(".phonesLoopSamsung");
   phonesLoopSamsung.forEach((div, index) => {
@@ -136,16 +143,22 @@ function redmiFun(e) {
   let redmiArr = e.filter((val) => val.Brand.toLowerCase() === "redmi");
   redmiArr.forEach((val) => {
     redmi.innerHTML += `
-    <div>
+    <div class="phonesOuterDiv">
     <img class="phoneDisplay phonesLoopRedmi phoneImageClickable" src="${val.Image}">
     <h3 class="phoneName">${val.Name}</h3>
     <h2 class="phoneBrand">Brand : ${val.Brand}</h2>
-    <div class="toCompare"><input type="checkbox" id="${val.Name}"
-     onInput="labelClicked('${val.Name}')">
+    <div class="toCompare"><input type="checkbox" class="labelClickedRedmi" id="${val.Name}">
     <label class="label" for="${val.Name}"><h3>Add to compare</h3></label>
     </div>
     </div>`;
   });
+  const phonesLabelClickingRedmi = document.querySelectorAll(".labelClickedRedmi");
+  phonesLabelClickingRedmi.forEach((phones,index) => { 
+    phones.addEventListener ("click",(val) => {
+      labelClicked(redmiArr[index].Name);
+    })
+  })
+
   const phonesLoopRedmi = document.querySelectorAll(".phonesLoopRedmi");
   phonesLoopRedmi.forEach((div, index) => {
     div.addEventListener("click", (e) => {
@@ -158,15 +171,23 @@ function pocoFun(e) {
   let pocoArr = e.filter((val) => val.Brand.toLowerCase() === "poco");
   pocoArr.forEach((val) => {
     poco.innerHTML += `
-    <div>
+    <div class="phonesOuterDiv">
     <img class="phoneDisplay phonesLoopPoco phoneImageClickable" src="${val.Image}">
     <h3 class="phoneName">${val.Name}</h3>
     <h2 class="phoneBrand">Brand : ${val.Brand}</h2>
-    <div class="toCompare"><input type="checkbox" id="${val.Name}" onInput="labelClicked('${val.Name}')">
+    <div class="toCompare"><input type="checkbox" class="labelClickedPoco" id="${val.Name}">
     <label class="label" for="${val.Name}"><h3>Add to compare</h3></label>
     </div>
     </div>`;
   });
+
+  const phonesLabelClickingPoco = document.querySelectorAll(".labelClickedPoco");
+  phonesLabelClickingPoco.forEach((phones,index) => { 
+    phones.addEventListener ("click",(val) => {
+      labelClicked(pocoArr[index].Name);
+    })
+  })
+
   const phonesLoopPoco = document.querySelectorAll(".phonesLoopPoco");
   phonesLoopPoco.forEach((div, index) => {
     div.addEventListener("click", (e) => {
@@ -179,15 +200,23 @@ function onePlusFun(e) {
   let onePlusArr = e.filter((val) => val.Brand.toLowerCase() === "oneplus");
   onePlusArr.forEach((val) => {
     onePlus.innerHTML += `
-    <div>
+    <div class="phonesOuterDiv">
     <img class="phoneDisplay phonesLoopOnePlus phoneImageClickable" src="${val.Image}">
     <h3 class="phoneName">${val.Name}</h3>
     <h2 class="phoneBrand">Brand : ${val.Brand}</h2>
-    <div class="toCompare"><input type="checkbox" id="${val.Name}" onInput="labelClicked('${val.Name}')">
+    <div class="toCompare"><input type="checkbox" class="labelClickedOnePlus" id="${val.Name}">
     <label class="label" for="${val.Name}"><h3>Add to compare</h3></label>
     </div>
     </div>`;
   });
+
+  const phonesLabelClickingOnePlus = document.querySelectorAll(".labelClickedOnePlus");
+  phonesLabelClickingOnePlus.forEach((phones,index) => { 
+    phones.addEventListener ("click",(val) => {
+      labelClicked(onePlusArr[index].Name);
+    })
+  })
+
   const phonesLoopOnePlus = document.querySelectorAll(".phonesLoopOnePlus");
   phonesLoopOnePlus.forEach((div, index) => {
     div.addEventListener("click", (e) => {
@@ -195,6 +224,12 @@ function onePlusFun(e) {
     });
   });
 }
+
+
+
+search.addEventListener("input",()=>{
+  getvalue();
+})
 
 function getvalue() {
   result.style.display = "block";
@@ -205,6 +240,7 @@ function getvalue() {
       val.Name.toLowerCase().includes(text)
     );
   });
+  
 
   if (text === "") {
     result.innerHTML = "";
@@ -269,8 +305,8 @@ function showPhoneExpand(val) {
       </div>
       <h1 class="sm:text-l md:text-xl font-medium">${name}</h1>
       <h1 class="mt-3 font-semibold text-xl">
-        <h2 class="mt-2 font-normal sm:text-l">${brand}</h2>
-        Memory: <span class="sm:text-xs text-base">${memory}</span>
+        <h2 class="mt-2 font-normal sm:text-l text-gray-500">${brand}</h2>
+        Memory: <span class="text-base">${memory}</span>
         <br />
         Display : <span class="text-base">${display}</span>
         <br />

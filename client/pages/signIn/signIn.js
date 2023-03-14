@@ -7,6 +7,11 @@ const togglePassword = document.getElementById("togglePassword");
 const facebookSignIn = document.getElementById("facebookSignIn");
 const authSubmit = document.getElementById("authSubmit");
 
+
+const signInimg1 = new URL("/SignIn_img.jpg", import.meta.url).href;
+document.getElementById("signInimg1").style.backgroundImage = `url(${signInimg1})`
+const signInimg2 = new URL("/SignIn_img.jpg", import.meta.url).href;
+document.getElementById("signInimg2").style.backgroundImage = `url(${signInimg2})`
 // const signOut = document.getElementById("signOut")
 
 togglePassword.addEventListener("click", function () {
