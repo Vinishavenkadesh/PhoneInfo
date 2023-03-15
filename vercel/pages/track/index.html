@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/pages/track/style.css" />
+    <link
+      rel="icon"
+      href="https://img.icons8.com/color/256/order-shipped.png"
+    />
+    <title>Tracking</title>
+  </head>
+  <body>
+    <section class="min-h-screen flex items-stretch text-white">
+      <div
+        class="lg:w-1/2 w-full flex items-center justify-center text-center md:px-16 px-0 z-0"
+        style="background-color: #161616"
+      >
+        <div
+          class="absolute lg:hidden z-10 inset-0 bg-gray-500 bg-no-repeat bg-cover items-center"
+         id = "trackimg1"
+        >
+          <div class="absolute bg-black opacity-60 inset-0 z-0"></div>
+        </div>
+        <div class="w-full py-6 z-20">
+          <form
+            class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto"
+            id="submitTrackForm"
+          >
+            <div class="flex justify-between w-full">
+              <div class="pb-2 pt-4 w-full mr-[3px]">
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Username"
+                  class="block w-full p-4 text-lg rounded-sm text-white bg-black"
+                />
+              </div>
+              <div class="pb-2 pt-4 w-full ml-[3px] text-white">
+                <select
+                  name="site"
+                  id="site"
+                  class="block w-full p-4 text-lg bg-black text-white"
+                >
+                  <option value="" class="text-white">
+                    Select Ecommerce site
+                  </option>
+                  <option value="amazon" class="text-white">AMAZON</option>
+                  <option value="flipkart" class="text-white">FLIPKART</option>
+                  <option value="ebay" class="text-white">SAMPLE</option>
+                </select>
+              </div>
+            </div>
+            <div class="pb-2 pt-4">
+              <input
+                type="text"
+                name="url"
+                id="price"
+                placeholder="Product URL"
+                class="block w-full p-4 text-lg rounded-sm text-white bg-black"
+              />
+            </div>
+            <div class="pb-2 pt-4">
+              <input
+                class="block w-full p-4 text-lg rounded-sm text-white bg-black"
+                type="number"
+                name="expectedPrice"
+                id="price"
+                placeholder="Expected Price"
+              />
+            </div>
+            <div class="pb-2 pt-4">
+              <input
+                type="email"
+                name="email"
+                id="price"
+                placeholder="Email"
+                class="block w-full p-4 text-lg rounded-sm text-white bg-black"
+              />
+            </div>
+            <div class="px-4 pb-2 pt-4 flex justify-between">
+              <button
+                type="submit"
+                class="uppercase block w-full px-4 py-3 m-2 text-lg rounded-sm bg-[linear-gradient(to_right,#02AAB0_0%,#008080_51%,#02AAB0_100%)] bg-[200%_auto] transition-[0.5s] hover:bg-[right_center] focus:outline-none"
+              >
+                SUBMIT
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div
+        class="lg:flex w-1/2 hidden bg-gray-500 bg-no-repeat bg-cover relative"
+        id = "trackimg2"
+      >
+        <div class="absolute bg-black opacity-60 inset-0 z-0"></div>
+        <div class="w-[35vw] px-[35px] z-10 mt-[10vh]">
+          <h1 class="fade-in-text text-5xl font-bold text-left tracking-wide">
+            Track the price
+          </h1>
+          <p class="fade-in-text text-2xl">of any E-Commerce product...</p>
+        </div>
+        <div
+          class="bottom-0 absolute p-4 text-center right-0 left-0 flex justify-center space-x-4"
+        ></div>
+      </div>
+    </section>
+    <script type="module" src="/pages/track/track.js"></script>
+  </body>
+</html>

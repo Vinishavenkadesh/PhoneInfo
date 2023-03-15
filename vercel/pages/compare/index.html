@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      rel="icon"
+      href="https://img.icons8.com/external-icongeek26-outline-colour-icongeek26/256/external-phones-mobile-application-icongeek26-outline-colour-icongeek26.png"
+    />
+    <link rel="stylesheet" href="/pages/compare/style.css" />
+    <link rel="stylesheet" href="/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comparing</title>
+    <style>
+      ::-webkit-scrollbar {
+        width: 0px;
+      }
+    </style>
+  </head>
+  <body class="overflow-x-hidden" id="body">
+    <div class="bg-black h-[11vh] w-[100vw] flex justify-evenly items-center">
+      <div class="flex w-[100vw] bg-black justify-evenly">
+        <div class="flex">
+          <h1
+            id="title-compare"
+            class="italic text-white text-lg font-semibold bg-black ml-[15%]"
+          >
+            Phone<span class="text-teal-600 bg-black">Info</span>
+          </h1>
+          <div>
+            <input
+              type="text"
+              class="w-[35vw] p-[8px] ml-[16px] focus:outline-0"
+              id="search"
+            />
+            <div class="absolute overflow-hidden">
+              <div
+                id="result"
+                class="cursor-pointer h-[25vh] overflow-auto bg-white"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <button
+          class="getStartedBottomButton bg-[#f5f5f5] hover:bg-teal-600 rounded-3xl py-[6px] px-[10px] items-center cursor-pointer font-semibold justify-end text-black transform transition duration-300 hover:scale-105"
+          type="button"
+          id="compareBtn"
+        >
+          Compare Now
+        </button>
+      </div>
+    </div>
+    <div class="flex flex-wrap justify-evenly w-[100vw]">
+      <section class="SamsungPhones">
+        <h1 class="pt-[6px] pl-[20px] pb-[6px] font-semibold text-3xl">
+          Samsung Series
+        </h1>
+        <div class="line mt-[1px] ml-[20px] h-0.5 w-[225px] bg-teal-600"></div>
+        <div id="samsung" class="flex flex-wrap justify-evenly mt-[5vh]"></div>
+      </section>
+      <section class="RedmiPhones">
+        <h1 class="pt-[6px] pl-[20px] pb-[6px] font-semibold text-3xl">
+          Redmi Series
+        </h1>
+        <div class="line mt-[1px] ml-[20px] h-0.5 w-[185px] bg-teal-600"></div>
+        <div id="redmi" class="flex flex-wrap justify-evenly mt-[5vh]"></div>
+      </section>
+      <section class="PocoPhones">
+        <h1 class="pt-[6px] pl-[20px] pb-[6px] font-semibold text-3xl">
+          Poco Series
+        </h1>
+        <div class="line mt-[1px] ml-[20px] h-0.5 w-[165px] bg-teal-600"></div>
+        <div id="poco" class="flex flex-wrap justify-evenly mt-[5vh]"></div>
+      </section>
+      <section class="OnePlusPhones">
+        <h1 class="pt-[6px] pl-[20px] pb-[6px] font-semibold text-3xl">
+          OnePlus
+        </h1>
+        <div class="line mt-[1px] ml-[20px] h-0.5 w-[100px] bg-teal-600"></div>
+        <div id="onePlus" class="flex flex-wrap justify-evenly mt-[5vh]"></div>
+      </section>
+    </div>
+    <!-- compare options -->
+    <div id="compare-lists" class="hidden">
+      <div
+        class="absolute top-[30px] bg-black px-3 py-1 rounded-full right-[30px] cursor-pointer z-50"
+      >
+        <h1 class="bg-black text-white" id="close-compare">X</h1>
+      </div>
+      <div>
+        <div class="h-[100%] w-[100%] bg-white absolute top-0 px-[2%] py-[2%]">
+          <div class="flex justify-evenly w-[100%] py-[1%]">
+            <div class="w-[20%] flex justify-center">
+              <h1 class="font-semibold">Product name</h1>
+            </div>
+            <div id="phoneName" class="flex w-[80%] justify-evenly"></div>
+          </div>
+          <hr />
+          <div class="flex justify-evenly w-[100%] py-[1%]">
+            <div class="w-[20%] flex justify-center">
+              <h1 class="font-semibold">Image</h1>
+            </div>
+            <div id="phoneImage" class="flex w-[80%] justify-evenly"></div>
+          </div>
+          <hr />
+          <div class="flex justify-evenly w-[100%] py-[1%]">
+            <div class="w-[20%] flex justify-center">
+              <h1 class="font-semibold">Memory</h1>
+            </div>
+            <div id="phoneMemory" class="flex w-[80%] justify-evenly"></div>
+          </div>
+          <hr />
+          <div class="flex justify-evenly w-[100%] py-[1%]">
+            <div class="w-[20%] flex justify-center">
+              <h1 class="font-semibold">Display</h1>
+            </div>
+            <div id="phoneDisplay" class="flex w-[80%] justify-evenly"></div>
+          </div>
+          <hr />
+          <div class="flex justify-evenly w-[100%] py-[1%]">
+            <div class="w-[20%] flex justify-center">
+              <h1 class="font-semibold">Camera</h1>
+            </div>
+            <div id="phoneCamera" class="flex w-[80%] justify-evenly"></div>
+          </div>
+          <hr />
+          <div class="flex justify-evenly w-[100%] py-[1%]">
+            <div class="w-[20%] flex justify-center">
+              <h1 class="font-semibold">Battery</h1>
+            </div>
+            <div id="phoneBattery" class="flex w-[80%] justify-evenly"></div>
+          </div>
+          <hr />
+          <div class="flex justify-evenly w-[100%] py-[1%]">
+            <div class="w-[20%] flex justify-center">
+              <h1 class="font-semibold">Processor</h1>
+            </div>
+            <div id="phoneProcessor" class="flex w-[80%] justify-evenly"></div>
+          </div>
+          <hr />
+          <div class="flex justify-evenly w-[100%] py-[1%]">
+            <div class="w-[20%] flex justify-center">
+              <h1 class="font-semibold">E-Commerce Link</h1>
+            </div>
+            <div id="phoneECommerce" class="flex w-[80%] justify-evenly"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- phone expand divs -->
+    <div id="phone-expand-lists" class="hidden">
+      <!-- close btn -->
+      <div
+        id="close-phone-expand"
+        class="absolute top-[30px] bg-black px-3 py-1 rounded-full right-[30px] cursor-pointer z-50"
+      >
+        <h1 class="bg-black text-white">X</h1>
+      </div>
+      <!-- phone explands -->
+      <div
+        id="display-phone-items"
+        class="h-[100vh] w-[100vw] flex bg-white absolute top-0 p-[30px] justify-evenly"
+      ></div>
+    </div>
+
+    <script src="/pages/compare/compare.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
+  </body>
+</html>
