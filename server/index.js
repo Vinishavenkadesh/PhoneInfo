@@ -345,9 +345,9 @@ async function trackContinuous() {
   }
 }
 
-// setInterval(() => {
-// trackContinuous();
-// }, 5000);
+setInterval(() => {
+trackContinuous();
+}, 5000);
 
 async function dailyPriceTracking() {
   console.log("-----------PRICE TRACKING------------");
@@ -410,9 +410,9 @@ async function dailyPriceTracking() {
   }
 }
 
-// setInterval(() => {
-// dailyPriceTracking();
-// }, 86400000);
+setInterval(() => {
+dailyPriceTracking();
+}, 86400000);
 
 app.get("/", (req, res) => {
   res.send(`Server running Successfully`);
