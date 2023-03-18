@@ -24,7 +24,6 @@ const phoneProcessorCompare = document.querySelector("#phoneProcessor");
 const phoneBatteryCompare = document.querySelector("#phoneBattery");
 const phoneECommerceCompare = document.querySelector("#phoneECommerce");
 
-
 compareBtn.addEventListener("click", (e) => {
   // console.log("OPENED");
 
@@ -94,9 +93,9 @@ function labelClicked(name) {
 }
 
 // const url = "https://phoneinfo-rpzt.onrender.com/allphones";
-// const url = "http://localhost:8000/allphones";
-const url = new URL("/phones.json", import.meta.url).href;
-console.log(url)
+const url = "http://localhost:8000/allphones";
+// const url = new URL("/phones.json", import.meta.url).href;
+console.log(url);
 
 console.log("UPDATED");
 
@@ -125,12 +124,14 @@ function samsungFun(e) {
   </div>`;
   });
 
-  const phonesLabelClickingSamsung = document.querySelectorAll(".labelClickedSamsung");
-  phonesLabelClickingSamsung.forEach((phones,index) => { 
-    phones.addEventListener ("click",(val) => {
+  const phonesLabelClickingSamsung = document.querySelectorAll(
+    ".labelClickedSamsung"
+  );
+  phonesLabelClickingSamsung.forEach((phones, index) => {
+    phones.addEventListener("click", (val) => {
       labelClicked(samsungArr[index].Name);
-    })
-  })
+    });
+  });
 
   const phonesLoopSamsung = document.querySelectorAll(".phonesLoopSamsung");
   phonesLoopSamsung.forEach((div, index) => {
@@ -153,12 +154,13 @@ function redmiFun(e) {
     </div>
     </div>`;
   });
-  const phonesLabelClickingRedmi = document.querySelectorAll(".labelClickedRedmi");
-  phonesLabelClickingRedmi.forEach((phones,index) => { 
-    phones.addEventListener ("click",(val) => {
+  const phonesLabelClickingRedmi =
+    document.querySelectorAll(".labelClickedRedmi");
+  phonesLabelClickingRedmi.forEach((phones, index) => {
+    phones.addEventListener("click", (val) => {
       labelClicked(redmiArr[index].Name);
-    })
-  })
+    });
+  });
 
   const phonesLoopRedmi = document.querySelectorAll(".phonesLoopRedmi");
   phonesLoopRedmi.forEach((div, index) => {
@@ -182,12 +184,13 @@ function pocoFun(e) {
     </div>`;
   });
 
-  const phonesLabelClickingPoco = document.querySelectorAll(".labelClickedPoco");
-  phonesLabelClickingPoco.forEach((phones,index) => { 
-    phones.addEventListener ("click",(val) => {
+  const phonesLabelClickingPoco =
+    document.querySelectorAll(".labelClickedPoco");
+  phonesLabelClickingPoco.forEach((phones, index) => {
+    phones.addEventListener("click", (val) => {
       labelClicked(pocoArr[index].Name);
-    })
-  })
+    });
+  });
 
   const phonesLoopPoco = document.querySelectorAll(".phonesLoopPoco");
   phonesLoopPoco.forEach((div, index) => {
@@ -211,12 +214,14 @@ function onePlusFun(e) {
     </div>`;
   });
 
-  const phonesLabelClickingOnePlus = document.querySelectorAll(".labelClickedOnePlus");
-  phonesLabelClickingOnePlus.forEach((phones,index) => { 
-    phones.addEventListener ("click",(val) => {
+  const phonesLabelClickingOnePlus = document.querySelectorAll(
+    ".labelClickedOnePlus"
+  );
+  phonesLabelClickingOnePlus.forEach((phones, index) => {
+    phones.addEventListener("click", (val) => {
       labelClicked(onePlusArr[index].Name);
-    })
-  })
+    });
+  });
 
   const phonesLoopOnePlus = document.querySelectorAll(".phonesLoopOnePlus");
   phonesLoopOnePlus.forEach((div, index) => {
@@ -226,11 +231,9 @@ function onePlusFun(e) {
   });
 }
 
-
-
-search.addEventListener("input",()=>{
+search.addEventListener("input", () => {
   getvalue();
-})
+});
 
 function getvalue() {
   result.style.display = "block";
@@ -241,7 +244,6 @@ function getvalue() {
       val.Name.toLowerCase().includes(text)
     );
   });
-  
 
   if (text === "") {
     result.innerHTML = "";

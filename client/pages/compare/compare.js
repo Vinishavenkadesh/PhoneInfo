@@ -94,8 +94,8 @@ function labelClicked(name) {
 }
 
 // const url = "https://phoneinfo-rpzt.onrender.com/allphones";
-const url = "http://localhost:8000/allphones";
-// const url = new URL("/phones.json", import.meta.url).href;
+// const url = "http://localhost:8000/allphones";
+const url = new URL("/phones.json", import.meta.url).href;
 console.log(url)
 console.log("UPDATED");
 

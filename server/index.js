@@ -32,9 +32,7 @@ mongoose
     console.log(error);
   });
 
-const data = JSON.parse(
-  fs.readFileSync("./models/phones.json", "utf-8")
-);
+const data = JSON.parse(fs.readFileSync("./models/phones.json", "utf-8"));
 
 const importData = async () => {
   try {
@@ -318,7 +316,8 @@ async function sendEmail(id, email, price, expectedPrice, url) {
     console.log(info.response);
     console.log(`successfully sent the email to : ${email}`);
     try {
-      await Track.deleteOne({ _id: id });
+      await Track.findByIdAndDelete(id);
+      console.log("succesfully deleted");
     } catch (error) {
       console.log(error);
     }
@@ -347,7 +346,7 @@ async function trackContinuous() {
 
 setInterval(() => {
 trackContinuous();
-}, 5000);
+}, 86400000);
 
 async function dailyPriceTracking() {
   console.log("-----------PRICE TRACKING------------");
